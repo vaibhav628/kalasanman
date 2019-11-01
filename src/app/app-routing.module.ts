@@ -17,7 +17,9 @@ const routes: Routes = [
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
     { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-    { path: 'membership', loadChildren: './membership/membership.module#MembershipPageModule' }
+    { path: 'membership', loadChildren: './membership/membership.module#MembershipPageModule' },
+  { path: 'donations', loadChildren: './donations/donations.module#DonationsPageModule' },
+  { path: 'events', loadChildren: './events/events.module#EventsPageModule' }
 
 ];
 

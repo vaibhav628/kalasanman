@@ -1,28 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Become A Member</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Become A Member
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content ion-padding>
+<ion-card color="secondary" align="left" size="small">
+  <ion-card-content >
+    <ion-card color="primary">
+      <ion-card-header color="light">
+        <p >
+          Become a member of this highly skilled group of performers. Membership is $1 per month, minimum is $10.
+          Membership makes you eligible for appearing for audition. All memberships are subject to approvals from Board of Directors.
+        </p>
+      </ion-card-header>
+    </ion-card>
+  </ion-card-content>
+</ion-card>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col ion-text-center>
-        Welcome to Dashboard!
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col ion-text-center>
-        Your Registered EmailID : {{userEmail}}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-</ion-content>
-<ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
+<ion-footer>
+  <ion-toolbar color="secondary" align="center">
+    <ion-title size="small" >
+      KalaSanman
+    </ion-title>
   </ion-toolbar>
 </ion-footer>
