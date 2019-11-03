@@ -9,18 +9,148 @@
   </ion-toolbar>
 </ion-header>
 
+
+<ion-content color="primary" >
+
 <ion-card color="secondary" align="left" size="small">
-  <ion-card-content >
-    <ion-card color="primary">
-      <ion-card-header color="light">
+
         <p >
           Become a member of this highly skilled group of performers. Membership is $1 per month, minimum is $10.
           Membership makes you eligible for appearing for audition. All memberships are subject to approvals from Board of Directors.
         </p>
-      </ion-card-header>
-    </ion-card>
-  </ion-card-content>
+
 </ion-card>
+
+<ion-content color="secondary" align="center">
+  <ion-card color="light" align="middle">
+    <ion-card-content >
+
+      <form class="form"  [formGroup]="validations_form">
+
+        <ion-item>
+          <ion-label  position="floating" color="primary">First Name</ion-label>
+
+          <ion-input type="text" formControlName="fname"></ion-input>
+        </ion-item>
+        <div class="validation-errors" >
+          <ng-container *ngFor="let validation of validation_messages.fname">
+            <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-label  position="floating" color="primary">Last Name</ion-label>
+
+          <ion-input type="text" formControlName="lname"></ion-input>
+        </ion-item>
+        <div class="validation-errors" >
+          <ng-container *ngFor="let validation of validation_messages.lname">
+            <div class="error-message" *ngIf="validations_form.get('lname').hasError(validation.type) && (validations_form.get('lname').dirty || validations_form.get('lname').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-list>
+
+          <ion-item>
+            <ion-label>Gender</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Age Group</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="grp1"><10</ion-select-option>
+              <ion-select-option value="grp2">10 To 20</ion-select-option>
+              <ion-select-option value="grp3">20 To 40</ion-select-option>
+              <ion-select-option value="grp4">40 To 60</ion-select-option>
+              <ion-select-option value="grp5">>60</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label  position="floating" color="primary">Contact Number</ion-label>
+
+            <ion-input type="text" formControlName="cnumber"></ion-input>
+          </ion-item>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.cnumber">
+              <div class="error-message" *ngIf="validations_form.get('cnumber').hasError(validation.type) && (validations_form.get('cnumber').dirty || validations_form.get('cnumber').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+
+          <ion-item>
+            <ion-label>Art Preferences</ion-label>
+            <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+              <ion-select-option value="play">Plays</ion-select-option>
+              <ion-select-option value="act">Acts</ion-select-option>
+              <ion-select-option value="music">Music</ion-select-option>
+              <ion-select-option value="drama">Drama</ion-select-option>
+              <ion-select-option value="dance">Dance</ion-select-option>
+              <ion-select-option value="recital">Recital</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Interests</ion-label>
+            <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+              <ion-select-option value="performance">Performance</ion-select-option>
+              <ion-select-option value="backstage">Backstage</ion-select-option>
+              <ion-select-option value="lights">Lights</ion-select-option>
+              <ion-select-option value="sound">Sound</ion-select-option>
+              <ion-select-option value="stage">Stage Setup</ion-select-option>
+              <ion-select-option value="arts">Arts</ion-select-option>
+              <ion-select-option value="noInterest">None</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>First Language</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="marathi">Marathi</ion-select-option>
+              <ion-select-option value="hindi">Hindi</ion-select-option>
+              <ion-select-option value="english">English</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Second Language</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="marathi">Marathi</ion-select-option>
+              <ion-select-option value="hindi">Hindi</ion-select-option>
+              <ion-select-option value="english">English</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Third Language</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="marathi">Marathi</ion-select-option>
+              <ion-select-option value="hindi">Hindi</ion-select-option>
+              <ion-select-option value="english">English</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-list>
+
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+</ion-content>
+
+
+
 
 <ion-footer>
   <ion-toolbar color="secondary" align="center">
