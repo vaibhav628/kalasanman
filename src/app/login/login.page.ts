@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = " ";
   myErrorMessage: string = " ";
+  alertMessage: string = " ";
 
   constructor(
 
@@ -28,7 +29,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
 
-      this.myErrorMessage = " ";
+      //this.myErrorMessage = " ";
 
       this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
@@ -65,6 +66,7 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateForward('/membership');
     }, err => {
       this.errorMessage = err.message;
+      this.alertMessage = err.message;
       console.log(err);
       this.presentAlert();
     })
@@ -79,7 +81,8 @@ export class LoginPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Alert',
       subHeader: '',
-      message: this.errorMessage,
+      //message: this.errorMessage,
+      message: this.alertMessage,
       buttons: ['OK']
     });
 
@@ -89,5 +92,7 @@ export class LoginPage implements OnInit {
    resetPassword(value) {
      console.log("called function resetPassword");
      this.authService.resetPassword(value.email);
+     this.alertMessage = "Email is sent to reset password."
+     this.presentAlert();
    }
 }
