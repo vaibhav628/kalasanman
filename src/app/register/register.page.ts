@@ -23,7 +23,7 @@ export class RegisterPage implements OnInit {
    ],
    'password': [
      { type: 'required', message: 'Password is required.' },
-     { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+     { type: 'minlength', message: 'Password must be at least 6 characters long.' }
    ]
  };
 
@@ -41,7 +41,7 @@ export class RegisterPage implements OnInit {
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl('', Validators.compose([
-        Validators.minLength(5),
+        Validators.minLength(6),
         Validators.required
       ])),
     });
@@ -69,7 +69,7 @@ export class RegisterPage implements OnInit {
 
   async presentAlert(alertMessage: string) {
 
-    console.log("called function presentAlert");
+    console.log("called function presentAlert in register");
     const alert = await this.alertController.create({
       header: 'Alert',
       subHeader: '',

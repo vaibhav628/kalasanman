@@ -9,7 +9,7 @@
       <ion-content color="secondary">
         <ion-list size="small">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="primary">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -18,6 +18,11 @@
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
+      <ion-footer>
+        <ion-toolbar color="secondary">
+          <ion-title size="small">Beta - By Vaibhav Deshpande</ion-title>
+        </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>

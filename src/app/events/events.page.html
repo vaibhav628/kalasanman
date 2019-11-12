@@ -4,21 +4,24 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Events
+      KalaSanman
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary" >
-
+<ion-content class="background" >
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="pastperf">
+       <ion-icon name="flash"></ion-icon>
+       <ion-label>Past Performances</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="upcoming">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Upcoming</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 
 </ion-content>
 
-
-<ion-footer>
-  <ion-toolbar color="secondary" align="center">
-    <ion-title size="small" >
-      KalaSanman
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>

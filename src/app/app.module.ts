@@ -30,7 +30,6 @@ firebase.initializeApp(environment.firebase);
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,

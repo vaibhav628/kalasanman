@@ -9,9 +9,19 @@ import { EventsPage } from './events.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: EventsPage
-  }
+    path: 'events',
+    component: EventsPage,
+    children:[
+            { path: 'pastperf', loadChildren: './pastperf/pastperf.module#PastperfPageModule'},
+            { path: 'upcoming', loadChildren: './upcoming/upcoming.module#UpcomingPageModule'},
+
+            ]
+  },
+    {
+       path:'',
+       redirectTo: 'events/pastperf',
+       pathMatch: 'full'
+    }
 ];
 
 @NgModule({

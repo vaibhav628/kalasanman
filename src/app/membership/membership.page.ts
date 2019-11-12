@@ -3,6 +3,7 @@ import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { MembersService } from '../services/members.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-membership',
@@ -13,13 +14,15 @@ export class MembershipPage implements OnInit {
 
   validations_form: FormGroup;
   userEmail: string;
+  alertMessage: string;
 
   constructor(
 
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private formBuilder: FormBuilder,
-    private membersService: MembersService
+    private membersService: MembersService,
+    public alertController: AlertController,
   ) { console.log("Membership constructor called");}
 
   validation_messages = {
@@ -112,9 +115,9 @@ export class MembershipPage implements OnInit {
                   Validators.pattern('^[a-zA-Z, +-]+$')
          ])),
          language: new FormControl('', Validators.compose([
-                           Validators.minLength(3),
-                           Validators.required,
-                           Validators.pattern('^[a-zA-Z, +-]+$')
+                  Validators.minLength(3),
+                  Validators.required,
+                  Validators.pattern('^[a-zA-Z, +-]+$')
          ])),
       });
 
@@ -126,8 +129,10 @@ export class MembershipPage implements OnInit {
     record.email = this.userEmail;
     console.log(this.userEmail);
     this.membersService.writeUserData(record);
+    this.alertMessage = "Membership request submitted. KalaSanman membership is subject to BoD approval. You will be notified once decision is made.";
+    this.presentAlert(this.alertMessage);
+    this.navCtrl.navigateForward('/home');
   }
-
 
  logout(){
     this.authService.logoutUser()
@@ -139,4 +144,19 @@ export class MembershipPage implements OnInit {
       console.log(error);
     })
   }
+
+    async presentAlert(alertMessage: string) {
+
+      console.log("called function presentAlert in membership");
+      const alert = await this.alertController.create({
+        header: 'Alert',
+        subHeader: '',
+        message: alertMessage,
+        buttons: ['OK']
+      });
+
+      await alert.present();
+    }
+
+
 }

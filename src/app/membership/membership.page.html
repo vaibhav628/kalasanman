@@ -10,16 +10,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-card color="secondary" align="left" size="small">
 
-        <p >
+<ion-card align="left" color="secondary">
           Become a member of this highly skilled group of performers. Membership is $1 per month, minimum is $10.
           Membership makes you eligible for appearing for audition. All memberships are subject to approvals from Board of Directors.
-        </p>
-
 </ion-card>
 
-<ion-content color="secondary" align="center">
+
+
+<ion-content align="center" class="background">
   <ion-card>
 
      <form class="form"  [formGroup]="validations_form">
@@ -111,6 +110,9 @@
 </ion-content>
 
 <ion-button  size = "small" color="primary" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >Request Membership</ion-button>
+
+
+
 
   <ion-footer>
   <ion-toolbar color="secondary" align="center">

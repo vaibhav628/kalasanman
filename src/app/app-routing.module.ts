@@ -19,7 +19,9 @@ const routes: Routes = [
     { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
     { path: 'membership', loadChildren: './membership/membership.module#MembershipPageModule' },
   { path: 'donations', loadChildren: './donations/donations.module#DonationsPageModule' },
-  { path: 'events', loadChildren: './events/events.module#EventsPageModule' }
+  { path: 'events', loadChildren: './events/events.module#EventsPageModule' },
+  { path: 'pastperf', loadChildren: './events/pastperf/pastperf.module#PastperfPageModule' },
+  { path: 'upcoming', loadChildren: './events/upcoming/upcoming.module#UpcomingPageModule' }
 
 ];
 
