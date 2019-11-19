@@ -11,6 +11,62 @@
 
 
 
+
+
+
+<ion-content align="center" class="background">
+
+  <ion-card >
+    <ion-card-header >
+      <p> Every small bit helps...especially for a recently established non-profit organization providing platform for performing arts!!!! </p>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card>
+
+    <form class="form"  [formGroup]="validations_form">
+
+      <ion-item>
+        <ion-label  position="floating" color="primary">Full Name</ion-label>
+
+        <ion-input type="text" formControlName="fname"></ion-input>
+      </ion-item>
+      <div class="validation-errors" >
+        <ng-container *ngFor="let validation of validation_messages.fname">
+          <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label  position="floating" color="primary">Email</ion-label>
+
+        <ion-input  value="{{userEmail}}" type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  position="floating" color="primary">Contact Number</ion-label>
+
+        <ion-input type="text" formControlName="cnumber" placeholder="Ten Digit Phone Number"></ion-input>
+      </ion-item>
+      <div class="validation-errors" >
+        <ng-container *ngFor="let validation of validation_messages.cnumber">
+          <div class="error-message" *ngIf="validations_form.get('cnumber').hasError(validation.type) && (validations_form.get('cnumber').dirty || validations_form.get('cnumber').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+    </form>
+
+    <ion-button  size = "small" color="primary" (click)="saveDonationInterest(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >I'm Interested In Donating</ion-button>
+
+
+  </ion-card>
+</ion-content>
+
 <ion-footer>
   <ion-toolbar color="secondary" align="center">
     <ion-title size="small" >

@@ -1,0 +1,15 @@
+
+<ion-content class="background">
+  <ion-card *ngFor="let event of infos" color="primary" >
+    <ion-card-header align="center" >
+      <ion-card-title> {{event.Name}}</ion-card-title>
+    </ion-card-header >
+
+    <ion-img  src="../assets/ShridharPhadake.jpg" align="center"></ion-img>
+    <ion-card-content>
+      Author: {{event.Author}}, Director: {{event.Director}}, Type: {{event.Type}}, Date: {{event.Date}},
+      Shows: {{event.Shows}}, Total Shows: {{event.TotalShows}}, Description: {{event.Synopsis}}
+      Cast: {{event.Cast}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

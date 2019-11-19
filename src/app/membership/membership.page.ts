@@ -27,9 +27,9 @@ export class MembershipPage implements OnInit {
 
   validation_messages = {
             'fname': [
-                { type: 'required', message: 'First name is required.' },
-                { type: 'minlength', message: 'First Name must be at least 3 characters long.' },
-                { type: 'pattern', message: 'Enter valid first name' },
+                { type: 'required', message: 'Name is required.' },
+                { type: 'minlength', message: 'Name must be at least 3 characters long.' },
+                { type: 'pattern', message: 'Enter valid name' },
               ],
 
             'cnumber': [
@@ -123,6 +123,8 @@ export class MembershipPage implements OnInit {
 
   }
 
+  //addMember old version was adding data to firestore database
+  //wrote new service writeUserData to write data to firebase realtime database
   addMember(record) {
 
     console.log(record);

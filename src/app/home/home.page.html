@@ -9,14 +9,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background">
+<ion-content class="background" >
 
-<ion-card>
+  <ion-card >
       <ion-card-header color="primary">
-        <ion-card-subtitle size="small" align="center" color="light">KalaSanman - Platform for Performing Arts</ion-card-subtitle>
+          <ion-card-subtitle size="small" align="center" color="dark">Platform for Performing Arts</ion-card-subtitle>
       </ion-card-header>
-</ion-card>
 
+    <ion-img  src="../assets/TATP.jpg"></ion-img>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button>Share</ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary" onclick="window.open('https://facebook.com/kalasanmancincy/', '_system', 'location=yes'); return false;"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="primary" onclick="window.open('https://facebook.com/kalasanmancincy/', '_system', 'location=yes'); return false;"> <ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button color="primary" onclick="window.open('https://facebook.com/kalasanmancincy/', '_system', 'location=yes'); return false;"><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
 
 
 
@@ -26,7 +39,7 @@
 <ion-footer>
   <ion-toolbar color="secondary">
     <ion-title size="small" align="center">
-      KalaSanman - Platform for Performing Arts
+      KalaSanman
     </ion-title>
   </ion-toolbar>
 </ion-footer>

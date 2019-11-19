@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -34,6 +34,7 @@ firebase.initializeApp(environment.firebase);
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule
+
 
   ],
   providers: [
