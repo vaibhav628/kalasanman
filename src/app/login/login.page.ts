@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
     ],
     'password': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 6 characters long.' }
+      { type: 'minlength', message: 'Minimum 6 characters please' }
     ]
   };
 

@@ -35,7 +35,7 @@ export class PastperfPage implements OnInit {
        this.infos = [];
        this.infos = snapshotToArray(resp);
 
-       //console.log(this.infos);
+       console.log(this.infos);
        //console.log(this.infos[0].Name);
      });
 }

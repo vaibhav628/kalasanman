@@ -9,16 +9,16 @@ import { ApiService } from '../api.service';
 export class HomePage {
 
 
-  articles;
-  constructor(private apiService: ApiService){}
+  //articles;
+  //constructor(private apiService: ApiService){}
+    constructor(){}
+  //ionViewDidEnter(){
 
-  ionViewDidEnter(){
-
-    this.apiService.getNews().subscribe((data)=>{
-      console.log(data);
-      this.articles = data['articles'];
-    });
-  }
+    //this.apiService.getNews().subscribe((data)=>{
+    //  console.log(data);
+    //  this.articles = data['articles'];
+    //});
+  //}
 }
 
 

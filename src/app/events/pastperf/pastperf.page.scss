@@ -7,3 +7,12 @@ ion-content.background{
     --background: url(../../../assets/496ecb14589707.562865d064f9e.png) ;
 }
 
+page-event-details {
+    .event-card {
+        background: #545454;
+        border: 1px solid secondary;
+    }
+    .event-info {
+        background: #4a4a4a;
+    }
+}

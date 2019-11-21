@@ -4,116 +4,105 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Become A Member
+      Request Membership
     </ion-title>
-
   </ion-toolbar>
 </ion-header>
 
-<ion-card align="center"  >
-
-     <form class="form"  [formGroup]="validations_form">
-
-        <ion-item>
-          <ion-label  position="floating" color="primary">Full Name</ion-label>
-
-          <ion-input type="text" formControlName="fname"></ion-input>
-        </ion-item>
-        <div class="validation-errors" >
-          <ng-container *ngFor="let validation of validation_messages.fname">
-            <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
-              {{ validation.message }}
-            </div>
-          </ng-container>
-        </div>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Email</ion-label>
-
-         <ion-input readonly="true" value="{{userEmail}}" type="text" formControlName="email"></ion-input>
-       </ion-item>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Age</ion-label>
-
-         <ion-input type="text" formControlName="age"></ion-input>
-       </ion-item>
-       <div class="validation-errors" >
-         <ng-container *ngFor="let validation of validation_messages.age">
-           <div class="error-message" *ngIf="validations_form.get('age').hasError(validation.type) && (validations_form.get('age').dirty || validations_form.get('age').touched)">
-             {{ validation.message }}
-           </div>
-         </ng-container>
-       </div>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Contact Number</ion-label>
-
-         <ion-input type="text" formControlName="cnumber" placeholder="Ten Digit Phone Number"></ion-input>
-       </ion-item>
-       <div class="validation-errors" >
-         <ng-container *ngFor="let validation of validation_messages.cnumber">
-           <div class="error-message" *ngIf="validations_form.get('cnumber').hasError(validation.type) && (validations_form.get('cnumber').dirty || validations_form.get('cnumber').touched)">
-             {{ validation.message }}
-           </div>
-         </ng-container>
-       </div>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Art Preferences</ion-label>
-         <ion-input type="text" formControlName="art" placeholder="Plays, Drama, Act, Music, Recital"></ion-input>
-       </ion-item>
-       <div class="validation-errors" >
-         <ng-container *ngFor="let validation of validation_messages.art">
-           <div class="error-message" *ngIf="validations_form.get('art').hasError(validation.type) && (validations_form.get('art').dirty || validations_form.get('art').touched)">
-             {{ validation.message }}
-           </div>
-         </ng-container>
-       </div>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Interests</ion-label>
-         <ion-input type="text" formControlName="interests" placeholder="Backstage,Perform,Stage,Sound"></ion-input>
-       </ion-item>
-       <div class="validation-errors" >
-         <ng-container *ngFor="let validation of validation_messages.interests">
-           <div class="error-message" *ngIf="validations_form.get('interests').hasError(validation.type) && (validations_form.get('interests').dirty || validations_form.get('interests').touched)">
-             {{ validation.message }}
-           </div>
-         </ng-container>
-       </div>
-
-       <ion-item>
-         <ion-label  position="floating" color="primary">Language Preference</ion-label>
-         <ion-input type="text" formControlName="language" placeholder="Marathi, Hindi, English"></ion-input>
-       </ion-item>
-       <div class="validation-errors" >
-         <ng-container *ngFor="let validation of validation_messages.language">
-           <div class="error-message" *ngIf="validations_form.get('language').hasError(validation.type) && (validations_form.get('language').dirty || validations_form.get('language').touched)">
-             {{ validation.message }}
-           </div>
-         </ng-container>
-       </div>
-
-      </form>
-
-<ion-button  size = "small" color="primary" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >Request Membership</ion-button>
-
-
-</ion-card>
-
-
 <ion-content align="center" class="background">
-  <ion-card align="left" color="primary">
+  <ion-grid style="height: 100%">
+  <form class="form"  [formGroup]="validations_form">
+
     <p>Become a member of this highly skilled group of performers. Membership is $1 per month, minimum is $10.
       Membership makes you eligible for appearing for audition. All memberships are subject to approvals from Board of Directors.</p>
-  </ion-card>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Full Name</ion-label>
+      <ion-input type="text" formControlName="fname"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.fname">
+              <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Email</ion-label>
+      <ion-input readonly="true" value="{{userEmail}}" type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Age</ion-label>
+      <ion-input type="text" formControlName="age"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.age">
+              <div class="error-message" *ngIf="validations_form.get('age').hasError(validation.type) && (validations_form.get('age').dirty || validations_form.get('age').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Contact Number</ion-label>
+
+      <ion-input type="text" formControlName="cnumber" placeholder="Ten Digit Phone Number"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.cnumber">
+              <div class="error-message" *ngIf="validations_form.get('cnumber').hasError(validation.type) && (validations_form.get('cnumber').dirty || validations_form.get('cnumber').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Art Preferences</ion-label>
+      <ion-input type="text" formControlName="art" placeholder="Plays, Drama, Act, Music, Recital"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.art">
+              <div class="error-message" *ngIf="validations_form.get('art').hasError(validation.type) && (validations_form.get('art').dirty || validations_form.get('art').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Interests</ion-label>
+      <ion-input type="text" formControlName="interests" placeholder="Backstage,Perform,Stage,Sound"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.interests">
+              <div class="error-message" *ngIf="validations_form.get('interests').hasError(validation.type) && (validations_form.get('interests').dirty || validations_form.get('interests').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="floating" color="primary">Language Preference</ion-label>
+      <ion-input type="text" formControlName="language" placeholder="Marathi, Hindi, English"></ion-input>
+          <div class="validation-errors" >
+            <ng-container *ngFor="let validation of validation_messages.language">
+              <div class="error-message" *ngIf="validations_form.get('language').hasError(validation.type) && (validations_form.get('language').dirty || validations_form.get('language').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+    </ion-item>
+
+  </form>
+
+  <ion-button  size = "small" color="primary" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >Request Membership</ion-button>
+
+  </ion-grid>
 </ion-content>
 
 
-
-
-  <ion-footer>
+<ion-footer>
   <ion-toolbar color="secondary" align="center">
     <ion-title size="small" >
       KalaSanman
