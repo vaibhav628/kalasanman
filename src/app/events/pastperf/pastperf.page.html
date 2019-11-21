@@ -2,27 +2,25 @@
 
 
 <ion-content class="background">
-<<<<<<< HEAD
+
     <ion-card *ngFor="let event of infos" class="event-card">
-=======
-    <ion-card *ngFor="let event of infos" color="dark" >
->>>>>>> d580d121c8b93f01d7e1b6bbac576f1384f12456
+
         <ion-card-header align="center" color="primary">
             <ion-card-title> {{event.Name}}</ion-card-title>
         </ion-card-header >
 
         <ion-img  src={{event.ImageURL}} align="center"></ion-img>
-<<<<<<< HEAD
+
         <ion-card-content class="event-info">
-=======
-        <ion-card-content>
->>>>>>> d580d121c8b93f01d7e1b6bbac576f1384f12456
+
                     Author: {{event.Author}}, Director: {{event.Director}}, Type: {{event.Type}}, Last Show Date: {{event.LastDate}},
                     Shows: {{event.Shows}}, Total Shows: {{event.TotalShows}}, Description: {{event.Synopsis}}
                     Cast: {{event.Cast}}
         </ion-card-content>
+
     </ion-card>
 </ion-content>
+
 
 
 
