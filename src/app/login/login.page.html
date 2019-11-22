@@ -9,12 +9,17 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content  align="center" class="background">
 
 <ion-grid style="height: 100%">
   <ion-row class="ion-align-items-center ion-justify-content-center"  style="height: 100%">
     <ion-card id = "login-card">
+
+
       <form class="form" [formGroup]="validations_form">
+
+
         <ion-list>
 
           <ion-item>
@@ -43,15 +48,15 @@
           </div>
           </ion-item>
 
-          <ion-button  size ="small" color="primary" (click)="loginUser(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Login</ion-button>
-          <ion-card color="light" size="small" align="center"  color="secondary">
-            <p class="go-to-register" >
-              Forgot password? <a (click)="resetPassword(validations_form.value)">Reset Password</a>
-            </p>
-            <p class="go-to-register" >
-              No account? <a (click)="goToRegisterPage()">Create an account</a>
-            </p>
-          </ion-card>
+          <p text-right>
+            Forgot password? <a (click)="resetPassword(validations_form.value)" >Forgot password?</a>
+          </p>
+
+          <ion-button  expand="full" color="primary" (click)="loginUser(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Login</ion-button>
+
+          <p text-center><a> Don't have an account?</a></p>
+
+          <ion-button  expand="full" color="danger" (click)="tryRegister(validations_form.value)"  [disabled]="!validations_form.valid">Register</ion-button>
 
         </ion-list>
       </form>
@@ -60,6 +65,9 @@
 </ion-grid>
 
 </ion-content>
+
+
+
 
 
 

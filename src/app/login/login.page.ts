@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
       this.errorMessage = err.message;
       this.alertMessage = err.message;
       console.log(err);
-      this.presentAlert();
+      this.presentAlert(err.message);
     })
   }
   goToRegisterPage(){
@@ -89,10 +89,49 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+    async presentAlert(alertMessage: string) {
+
+      console.log("called function presentAlert with param");
+      const alert = await this.alertController.create({
+        header: 'Alert',
+        subHeader: '',
+        //message: this.errorMessage,
+        message: alertMessage,
+        buttons: ['OK']
+      });
+
+      await alert.present();
+    }
+
+
    resetPassword(value) {
      console.log("called function resetPassword");
+
+     if ( typeof value.email!='undefined' && value.email )    {
      this.authService.resetPassword(value.email);
      this.alertMessage = "Email is sent to reset password."
-     this.presentAlert();
+     this.presentAlert(this.alertMessage);
+     }
+     else {
+     this.alertMessage = "Enter valid email address."
+          this.presentAlert(this.alertMessage);
+     }
    }
+
+     tryRegister(value){
+       this.authService.registerUser(value)
+        .then(res => {
+          console.log(res);
+          this.errorMessage = "";
+          this.successMessage = "Your account has been created. Please log in.";
+          this.presentAlert(this.successMessage);
+
+          //this.goLoginPage();
+        }, err => {
+          console.log(err);
+          this.errorMessage = err.message;
+          this.presentAlert(this.errorMessage);
+          this.successMessage = "";
+        })
+     }
 }
