@@ -1,15 +1,22 @@
 
 <ion-content class="background">
-  <ion-card *ngFor="let event of infos" color="dark" >
-    <ion-card-header align="center" color="primary">
-      <ion-card-title> {{event.Name}}</ion-card-title>
-    </ion-card-header >
-
-    <ion-img  src="../assets/ShridharPhadake.jpg" align="center"></ion-img>
-    <ion-card-content>
-      Author: {{event.Author}}, Director: {{event.Director}}, Type: {{event.Type}}, Date: {{event.Date}},
-      Shows: {{event.Shows}}, Total Shows: {{event.TotalShows}}, Description: {{event.Synopsis}}
-      Cast: {{event.Cast}}
+  <ion-card *ngFor="let event of infos; let i = index"  >
+    <ion-card-header>
+      <ion-row>
+        <ion-card-title color="primary">{{ event.Name }}</ion-card-title>
+      </ion-row>
+      <ion-row>
+        <ion-img src={{event.ImageURL}}></ion-img>
+      </ion-row>
+      <div class="myOverlay">
+          <div class="card-title" color="primary">Author:{{ event.Author }}</div>
+        <div class="card-title" color="primary">Directed By:{{ event.Director }}</div>
+        <div class="card-subtitle" color="primary">Date: {{ event.Date }}</div>
+      </div>
+    </ion-card-header>
+    <ion-card-content color="warning">
+      {{ event.Cast }}
     </ion-card-content>
   </ion-card>
 </ion-content>
+

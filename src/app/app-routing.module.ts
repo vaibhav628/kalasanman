@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'donations', loadChildren: './donations/donations.module#DonationsPageModule' },
   { path: 'events', loadChildren: './events/events.module#EventsPageModule' },
   { path: 'pastperf', loadChildren: './events/pastperf/pastperf.module#PastperfPageModule' },
-  { path: 'upcoming', loadChildren: './events/upcoming/upcoming.module#UpcomingPageModule' }
+  { path: 'upcoming', loadChildren: './events/upcoming/upcoming.module#UpcomingPageModule' },  { path: 'newsfeed', loadChildren: './newsfeed/newsfeed.module#NewsfeedPageModule' }
+
 
 ];
 

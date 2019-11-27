@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { AlertController } from '@ionic/angular';
+import {Events} from '@ionic/angular';
 
 
 @Component({
@@ -16,16 +17,22 @@ export class LoginPage implements OnInit {
   errorMessage: string = " ";
   myErrorMessage: string = " ";
   alertMessage: string = " ";
+  successMessage: string = " ";
 
   constructor(
 
     private navCtrl: NavController,
     private authService: AuthenticateService,
-
+    public events : Events,
     private formBuilder: FormBuilder,
     public alertController: AlertController,
 
     ) { }
+
+    ionViewDidLoad(){
+
+              this.events.publish('loggedin');
+         }
 
   ngOnInit() {
 
@@ -75,19 +82,7 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateForward('/register');
   }
 
-  async presentAlert() {
 
-    console.log("called function presentAlert");
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: '',
-      //message: this.errorMessage,
-      message: this.alertMessage,
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
 
     async presentAlert(alertMessage: string) {
 

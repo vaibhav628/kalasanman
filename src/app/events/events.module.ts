@@ -19,7 +19,7 @@ const routes: Routes = [
   },
     {
        path:'',
-       redirectTo: 'events/pastperf',
+       redirectTo: 'events/upcoming',
        pathMatch: 'full'
     }
 ];
