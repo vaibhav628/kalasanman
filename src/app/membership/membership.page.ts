@@ -27,45 +27,50 @@ export class MembershipPage implements OnInit {
 
   validation_messages = {
             'fname': [
-                { type: 'required', message: 'Name is required.' },
-                { type: 'minlength', message: 'Name must be at least 3 characters long.' },
-                { type: 'pattern', message: 'Enter valid name' },
-              ],
+                            { type: 'required', message: 'Name is required.' },
+                            { type: 'minlength', message: 'Name must be at least 3 characters long.' },
+                            { type: 'pattern', message: 'Enter valid name' },
+                ],
 
             'cnumber': [
                             { type: 'required', message: 'Contact number is required.' },
                             { type: 'minlength', message: 'Enter phone number with area code' },
                             { type: 'maxlength', message: 'Enter phone number with area code' },
                             { type: 'pattern', message: 'Enter valid contact number' },
-                    ],
+                 ],
             'age': [
                             { type: 'required', message: 'Age is required.' },
-                            { type: 'minlength', message: 'Enter valid age' },
-                            { type: 'maxlength', message: 'Enter valid age' },
-                            { type: 'pattern', message: 'Enter valid age' },
-                    ],
+                            { type: 'minlength', message: 'Enter valid age group' },
+                            { type: 'maxlength', message: 'Enter valid age group' },
+                            { type: 'pattern', message: 'Enter valid age group' },
+                 ],
             'art': [
                             { type: 'required', message: 'Art Preference is required.' },
                             { type: 'minlength', message: 'Enter comma separated Art preferences' },
                             { type: 'pattern', message: 'Enter valid preferences' },
-             ],
+                 ],
             'interests': [
                             { type: 'required', message: 'Interests Preference is required.' },
                             { type: 'minlength', message: 'Enter comma separated Interests preferences' },
                             { type: 'pattern', message: 'Enter valid preferences' },
-             ],
+                  ],
              'language': [
                             { type: 'required', message: 'Language Preference is required.' },
                             { type: 'minlength', message: 'Enter comma separated Language preferences' },
                             { type: 'pattern', message: 'Enter valid preferences' },
-                          ],
-            'email': [
-                    { type: 'required', message: 'Email is required.' },
-                    { type: 'pattern', message: 'Please enter a valid email.' }
                   ],
-                  'password': [
-                    { type: 'required', message: 'Password is required.' },
-                    { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+            'email': [
+                            { type: 'required', message: 'Email is required.' },
+                            { type: 'pattern', message: 'Please enter a valid email.' }
+                  ],
+            'password': [
+                            { type: 'required', message: 'Password is required.' },
+                            { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+                  ],
+            'address': [
+                            { type: 'required', message: 'Address is required.' },
+                            { type: 'minlength', message: 'Please enter valid address' },
+                            { type: 'pattern', message: 'Please enter valid address' }
                   ]
         };
 
@@ -79,19 +84,18 @@ export class MembershipPage implements OnInit {
 
         this.validations_form = this.formBuilder.group({
         email: new FormControl('', Validators.compose([
-          Validators.required,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+                  Validators.required,
+                  Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ])),
         password: new FormControl('', Validators.compose([
-          Validators.minLength(5),
-          Validators.required
+                  Validators.minLength(5),
+                  Validators.required
         ])),
          fname: new FormControl('', Validators.compose([
                   Validators.minLength(3),
                   Validators.required,
                   Validators.pattern('^[a-zA-Z +-]+$')
          ])),
-
          cnumber: new FormControl('', Validators.compose([
                   Validators.minLength(10),
                   Validators.maxLength(10),
@@ -100,9 +104,9 @@ export class MembershipPage implements OnInit {
          ])),
          age: new FormControl('', Validators.compose([
                   Validators.minLength(1),
-                  Validators.maxLength(2),
+                  Validators.maxLength(5),
                   Validators.required,
-                  Validators.pattern('^[0-9+-]+$')
+                  Validators.pattern('^[0-9+-]+[-]+[0-9+-]+$')
          ])),
          art: new FormControl('', Validators.compose([
                   Validators.minLength(3),
@@ -119,8 +123,12 @@ export class MembershipPage implements OnInit {
                   Validators.required,
                   Validators.pattern('^[a-zA-Z, +-]+$')
          ])),
+         address: new FormControl('', Validators.compose([
+                  Validators.minLength(10),
+                  Validators.required,
+                  Validators.pattern('^[0-9+-]+[ a-zA-Z , +-]+[0-9+-]+$')
+         ])),
       });
-
   }
 
   //addMember old version was adding data to firestore database

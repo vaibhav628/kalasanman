@@ -10,10 +10,15 @@ export class MembersService {
   //storage = firebase.storage();
   //storageRef = storage.ref();
   //var database = firebase.database();
+  dateadded ="";
+
+
+
 
   //key = database.getReference("quiz").push().getKey();
 
   constructor(private firestore: AngularFirestore) { }
+
 
   //this is for firestore database
   addMember(record){
@@ -31,16 +36,22 @@ export class MembersService {
 
       //this is for realtime database - saving donations interests
       saveDonationInterest(record) {
+
+          const now = new Date();
+          this.dateadded = now.toISOString();
           firebase.database().ref('kalasanman/donations/' + record.fname ).set({
           fullname : record.fname,
           email : record.email,
-          cnumber : record.cnumber
+          cnumber : record.cnumber,
+          modified : this.dateadded
 
         });
      }
 
    //this is for realtime database
    writeUserData(record) {
+       const now = new Date();
+       this.dateadded = now.toISOString();
        firebase.database().ref('kalasanman/members/' + record.fname ).set({
      //firebase.database().ref('kalasanman/events/PastPerformances/TATP/' ).set({
        fullname : record.fname,
@@ -49,7 +60,8 @@ export class MembersService {
        cnumber : record.cnumber,
        art : record.art,
        interests : record.interests,
-       languages : record.language
+       languages : record.language,
+       modified : this.dateadded
      });
   }
 }
