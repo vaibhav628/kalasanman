@@ -14,7 +14,7 @@ import * as firebase from 'firebase/app';
 export class UpcomingPage implements OnInit {
 
  infos = [];
- ref = firebase.database().ref('/kalasanman/events/Upcoming');
+ ref = firebase.database().ref('/kalasanman/events/upcoming');
 
   constructor(
          private navCtrl: NavController,

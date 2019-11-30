@@ -3,18 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align="center" size="medium">
+    <ion-title align="left" size="medium">
       Donations
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-
-
-
-
 <ion-content align="center" class="background">
+
+  <ion-grid style="height: 100%">
+    <ion-row class="ion-align-items-center ion-justify-content-center"  style="height: 100%">
 
   <ion-card >
     <ion-card-header >
@@ -22,14 +21,10 @@
     </ion-card-header>
   </ion-card>
 
-
   <ion-card>
-
     <form class="form"  [formGroup]="validations_form">
-
       <ion-item>
         <ion-label  position="floating" color="primary">Full Name</ion-label>
-
         <ion-input type="text" formControlName="fname"></ion-input>
       </ion-item>
       <div class="validation-errors" >
@@ -39,16 +34,13 @@
           </div>
         </ng-container>
       </div>
-
       <ion-item>
         <ion-label  position="floating" color="primary">Email</ion-label>
 
         <ion-input  value="{{userEmail}}" type="text" formControlName="email"></ion-input>
       </ion-item>
-
       <ion-item>
         <ion-label  position="floating" color="primary">Contact Number</ion-label>
-
         <ion-input type="text" formControlName="cnumber" placeholder="Ten Digit Phone Number"></ion-input>
       </ion-item>
       <div class="validation-errors" >
@@ -58,13 +50,13 @@
           </div>
         </ng-container>
       </div>
-
     </form>
 
     <ion-button  size = "small" color="primary" (click)="saveDonationInterest(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >I'm Interested In Donating</ion-button>
 
-
   </ion-card>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 <ion-footer>

@@ -5,6 +5,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
 
   showButton : any=false;  //will not show the log out button by default
 
@@ -25,6 +28,11 @@ export class AppComponent {
             title: 'Login',
             url: '/login',
             icon: 'unlock'
+    },
+    {
+            title: 'Newsfeed',
+            url: '/newsfeed',
+            icon: 'globe'
     },
     {
             title: 'Membership',
@@ -51,6 +59,9 @@ export class AppComponent {
     constructor(
     public events : Events,
     private authService: AuthenticateService,
+    private alertController: AlertController,
+    private navCtrl: NavController,
+    public menuCtrl: MenuController
     ){
                     console.log("inside app component constructor");
 
@@ -63,6 +74,7 @@ export class AppComponent {
 
      logOut() {
 
+            var alertMessage="";
             console.log("inside logout user");
             //console.log(value.email);
             //console.log(value.password);
@@ -70,16 +82,32 @@ export class AppComponent {
             this.authService.logoutUser()
             .then(res => {
               console.log(res);
-             // this.errorMessage = "";
+              alertMessage = "Logout successful";
+              this.presentAlert(alertMessage);
+
               //this.navCtrl.navigateForward('home');
             }, err => {
-              //this.errorMessage = err.message;
-              //this.alertMessage = err.message;
-              console.log(err);
-              //this.presentAlert(err.message);
-            })
 
-         // this.navCtrl.navigateForward('/home');
+              console.log(err);
+              this.presentAlert(err.message);
+            })
+         this.menuCtrl.toggle();
+         this.navCtrl.navigateForward('/home');
      }
+
+      async presentAlert(alertMessage: string) {
+
+           console.log("called function presentAlert with param");
+           const alert = await this.alertController.create({
+             header: 'Alert',
+             subHeader: '',
+             //message: this.errorMessage,
+             message: alertMessage,
+             buttons: ['OK']
+           });
+
+           await alert.present();
+         }
+
 
 }

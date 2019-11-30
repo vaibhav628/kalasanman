@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title align="left" size="medium">
+      Newsfeed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card *ngFor="let news of (newsfeed)?.slice().reverse(); let i = index" (click)="externalURL(news.externalURL)">
+    <ion-card-header>
+      <ion-row>
+        <ion-img src={{news.ImageURL}}></ion-img>
+      </ion-row>
+      <div class="myOverlay">
+        <div class="card-title" color="light">{{ news.Date }}</div>
+        <div class="card-title" color="light">{{ news.Headline }}</div>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      {{ news.Synopsis }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+<ion-toolbar color="secondary" align="center">
+  <ion-title size="small" >
+    KalaSanman
+  </ion-title>
+</ion-toolbar>
+</ion-footer>

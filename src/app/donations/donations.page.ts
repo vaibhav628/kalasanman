@@ -50,7 +50,7 @@ export class DonationsPage implements OnInit {
       if(this.authService.userDetails()){
         this.userEmail = this.authService.userDetails().email;
       }else{
-        this.navCtrl.navigateBack('');
+        this.navCtrl.navigateBack('/login');
       }
 
           this.validations_form = this.formBuilder.group({
