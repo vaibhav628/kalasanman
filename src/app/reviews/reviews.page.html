@@ -1,0 +1,87 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title align-title="center" class="bar-positive" size="medium">
+      Reviews
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content align="center" color="light">
+    <ion-grid>
+        <ion-row >
+            <ion-slides pager="true" >
+                <ion-slide *ngFor="let review of (reviews)?.slice().reverse();">
+                    <ion-card color="primary">
+                        <p align = "center"> "{{ review.event }}" </p>
+                        <p > "{{ review.reviewtext }}" </p>
+                        <div align="right"> - {{ review.fullname}} </div>
+                        <div align="right"> {{ review.modified | slice:0:10}} </div>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+
+        <ion-row class="ion-align-items-center ion-justify-content-center"  >
+            <ion-card id = "login-card">
+
+                <form class="form" [formGroup]="validations_form">
+                    <ion-list>
+
+                        <ion-item>
+                            <ion-label  position="floating" color="primary">Full Name</ion-label>
+                            <ion-input type="text" formControlName="fname" placeholder="Anonymous"></ion-input>
+                            <div class="validation-errors" >
+                                <ng-container *ngFor="let validation of validation_messages.fname">
+                                    <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label  position="floating" color="primary">Event Name</ion-label>
+                            <ion-input  type="text" formControlName="eventname" placeholder="Event Name or General"></ion-input>
+                            <div class="validation-errors">
+                                <ng-container *ngFor="let validation of validation_messages.eventname">
+                                    <div class="error-message" *ngIf="validations_form.get('eventname').hasError(validation.type) && (validations_form.get('eventname').dirty || validations_form.get('eventname').touched)">
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label  position="floating" color="primary">Review</ion-label>
+                            <ion-textarea rows="6" cols="80" formControlName="review" placeholder="Review . . ."></ion-textarea>
+                            <div class="validation-errors">
+                                <ng-container *ngFor="let validation of validation_messages.review">
+                                    <div class="error-message" *ngIf="validations_form.get('review').hasError(validation.type) && (validations_form.get('review').dirty || validations_form.get('review').touched)">
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ion-item>
+
+                        <ion-button  expand="full" color="danger" (click)="saveReview(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('review').valid ">Submit</ion-button>
+
+                    </ion-list>
+
+                </form>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <ion-title size="small" align="center">
+      KalaSanman
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,22 +1,20 @@
-
-<ion-content class="background">
-  <ion-card *ngFor="let event of infos; let i = index"  >
-    <ion-card-header>
-      <ion-row>
-        <ion-card-title color="primary">{{ event.Name }}</ion-card-title>
-      </ion-row>
-      <ion-row>
-        <ion-img src={{event.ImageURL}}></ion-img>
-      </ion-row>
-      <div class="myOverlay">
-          <div class="card-title" color="primary">Author:{{ event.Author }}</div>
-        <div class="card-title" color="primary">Directed By:{{ event.Director }}</div>
-        <div class="card-subtitle" color="primary">Date: {{ event.Date }}</div>
-      </div>
-    </ion-card-header>
-    <ion-card-content color="warning">
-      {{ event.Cast }}
-    </ion-card-content>
-  </ion-card>
+<ion-content color="dark">
+    <ion-grid>
+        <ion-row>
+            <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let event of infos; let i = index"  id = "home-card" >
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-subtitle color="primary">{{ event.Date }} : {{ event.Name }}</ion-card-subtitle>
+                    </ion-card-header>
+                    <img src={{event.ImageURL}}>
+                    <div class="myOverlay">
+                        <div>Author: {{ event.Author }}</div>
+                        <div>Directed By: {{ event.Director }}</div>
+                        <div>Cast: {{ event.Cast }}</div>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 

@@ -9,22 +9,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background">
-  <ion-card *ngFor="let news of (newsfeed)?.slice().reverse(); let i = index" (click)="externalURL(news.externalURL)">
-    <ion-card-header>
+
+<ion-content color="dark">
+    <ion-grid>
       <ion-row>
-        <ion-img src={{news.ImageURL}}></ion-img>
+        <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let news of (newsfeed)?.slice().reverse(); let i = index" (click)="externalURL(news.externalURL)" >
+          <ion-card color="primary">
+            <ion-card-header>
+              <ion-card-subtitle color="dark">{{ news.Date }} : {{ news.Headline }}</ion-card-subtitle>
+            </ion-card-header>
+            <img src={{news.ImageURL}}>
+
+             <div color="primary"> {{ news.Synopsis }} </div>
+
+          </ion-card>
+        </ion-col>
       </ion-row>
-      <div class="myOverlay">
-        <div class="card-title" color="light">{{ news.Date }}</div>
-        <div class="card-title" color="light">{{ news.Headline }}</div>
-      </div>
-    </ion-card-header>
-    <ion-card-content>
-      {{ news.Synopsis }}
-    </ion-card-content>
-  </ion-card>
+    </ion-grid>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
 
 <ion-footer>
 <ion-toolbar color="secondary" align="center">

@@ -50,6 +50,11 @@ export class AppComponent {
             icon: 'logo-usd'
     },
     {
+                title: 'Reviews',
+                url: '/reviews',
+                icon: 'text'
+    },
+    {
             title: 'About',
             url: '/about',
             icon: 'help-circle-outline'

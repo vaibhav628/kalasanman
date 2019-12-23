@@ -15,6 +15,7 @@ export class MembershipPage implements OnInit {
   validations_form: FormGroup;
   userEmail: string;
   alertMessage: string;
+  URL: string;
 
   constructor(
 
@@ -23,7 +24,11 @@ export class MembershipPage implements OnInit {
     private formBuilder: FormBuilder,
     private membersService: MembersService,
     public alertController: AlertController,
-  ) { console.log("Membership constructor called");}
+  ) { console.log("Membership constructor called");
+
+  this.URL="https://www.hungamacity.com/membership/14/kalasanman-membership";
+
+  }
 
   validation_messages = {
             'fname': [
@@ -139,7 +144,7 @@ export class MembershipPage implements OnInit {
     record.email = this.userEmail;
     console.log(this.userEmail);
     this.membersService.writeUserData(record);
-    this.alertMessage = "Membership request submitted. KalaSanman membership is subject to BoD approval. You will be notified once decision is made.";
+    this.alertMessage = "Thank you. Would you like to pay your membership dues now?";
     this.presentAlert(this.alertMessage);
     this.navCtrl.navigateForward('/home');
   }
@@ -159,10 +164,25 @@ export class MembershipPage implements OnInit {
 
       console.log("called function presentAlert in membership");
       const alert = await this.alertController.create({
-        header: 'Alert',
+        header: 'Confirm',
         subHeader: '',
         message: alertMessage,
-        buttons: ['OK']
+        buttons:  [
+                       {
+                         text: 'Yes',
+                         role: 'yes',
+                         cssClass: 'secondary',
+                         handler: (blah) => {
+                           console.log('Confirm Yes: blah');
+                           window.open("https://www.hungamacity.com/membership/14/kalasanman-membership");
+                         }
+                       }, {
+                         text: 'No',
+                         handler: () => {
+                           console.log('Confirm No');
+                         }
+                       }
+        ]
       });
 
       await alert.present();

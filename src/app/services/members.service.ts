@@ -39,12 +39,26 @@ export class MembersService {
 
           const now = new Date();
           this.dateadded = now.toISOString();
-          firebase.database().ref('kalasanman/donations/' + record.fname ).set({
+          firebase.database().ref('kalasanman/reviews/' + record.fname ).set({
           fullname : record.fname,
           email : record.email,
-          cnumber : record.cnumber,
+          reviewtext : record.reviewtext,
           modified : this.dateadded
 
+        });
+     }
+
+      //this is for realtime database - saving user review
+      saveReview(record) {
+
+          const now = new Date();
+          this.dateadded = now.toISOString();
+          firebase.database().ref('kalasanman/reviews/' + record.fname ).set({
+          fullname : record.fname,
+          email : record.email,
+          event : record.eventname,
+          reviewtext : record.review,
+          modified : this.dateadded
         });
      }
 

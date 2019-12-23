@@ -1,30 +1,27 @@
 ion-card{
-  --background: #021b46;
-  --color: #fff;
+     margin: 1px 10px;
+}
+
+ion-card-title {
+    font-size: 30px;
 }
 
 ion-content.background{
     --background: url(../../../assets/496ecb14589707.562865d064f9e.png) ;
-
-}
-
-img{
-  width:100%;
-  height:100%;
 }
 
 .myCard{
   position:relative;
-
 }
 
 .myOverlay{
     width: 100%;
-    height: 70px;
+    height: 100px;
     position: absolute;
     z-index: 99;
     bottom: 0px;
-    opacity: 0.5;
+    opacity: 0.4;
     background: #000;
     color: #fff;
 }
+
