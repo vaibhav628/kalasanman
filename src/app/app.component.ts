@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Events} from '@ionic/angular';
+import { Events } from '@ionic/angular';
 import { AuthenticateService } from './services/authentication.service';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -7,6 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+
+/* added to support FCM push notifications*/
+import { FcmService } from './services/fcm.service'
+import { ToastController } from '@ionic/angular';
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
@@ -16,7 +21,7 @@ import { MenuController } from '@ionic/angular';
 export class AppComponent {
 
 
-  showButton : any=false;  //will not show the log out button by default
+  showButton: any = false;  //will not show the log out button by default
 
   public appPages = [
     {
@@ -25,94 +30,126 @@ export class AppComponent {
       icon: 'home'
     },
     {
-            title: 'Login',
-            url: '/login',
-            icon: 'unlock'
+      title: 'Login',
+      url: '/login',
+      icon: 'unlock'
     },
     {
-            title: 'Newsfeed',
-            url: '/newsfeed',
-            icon: 'globe'
+      title: 'Newsfeed',
+      url: '/newsfeed',
+      icon: 'globe'
     },
     {
-            title: 'Membership',
-            url: '/membership',
-            icon: 'people'
+      title: 'Membership',
+      url: '/membership',
+      icon: 'people'
     },
     {
-            title: 'Events',
-            url: '/events',
-            icon: 'headset'
+      title: 'Events',
+      url: '/events',
+      icon: 'headset'
     },
     {
-            title: 'Donations',
-            url: '/donations',
-            icon: 'logo-usd'
+      title: 'Donations',
+      url: '/donations',
+      icon: 'logo-usd'
     },
     {
-                title: 'Reviews',
-                url: '/reviews',
-                icon: 'text'
+      title: 'Reviews',
+      url: '/reviews',
+      icon: 'text'
     },
     {
-            title: 'About',
-            url: '/about',
-            icon: 'help-circle-outline'
+      title: 'About',
+      url: '/about',
+      icon: 'help-circle-outline'
     }
-    ];
+  ];
 
-    constructor(
-    public events : Events,
+  constructor(
+    public events: Events,
     private authService: AuthenticateService,
     private alertController: AlertController,
     private navCtrl: NavController,
-    public menuCtrl: MenuController
-    ){
-                    console.log("inside app component constructor");
+    public menuCtrl: MenuController,
+    /* added to support FCM push notifications*/
+    private fcm: FcmService,
+    private toastCtrl: ToastController,
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen,
+  ) {
+    console.log("inside app component constructor");
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    })
+    // Listening for the event when the user has logged in
+    this.events.subscribe('loggedin', () => {
+      console.log("user logged in");
+      this.showButton = true      // will show the log out button now
+      /* added to support FCM push notifications*/
+      this.initializeApp();
+    });
 
-                    // Listening for the event when the user has logged in
-                    this.events.subscribe('loggedin', ()=>{
-                          console.log("user logged in");
-                          this.showButton = true      // will show the log out button now
-                    });
-     }
+  }
 
-     logOut() {
+  initializeApp() {
+    console.log("inside initializeApp");
+    let toast
+    // Get a FCM token
+    this.fcm.getToken()
 
-            var alertMessage="";
-            console.log("inside logout user");
-            //console.log(value.email);
-            //console.log(value.password);
+    // Listen to incoming messages
+    this.fcm.listenToNotifications().pipe(
+      tap(msg => {
+        // show a toast
+        toast = this.toastCtrl.create({
+          message: msg.body,
+          duration: 3000
+        });
+        toast.present();
+      })
+    )
+      .subscribe()
+  }
 
-            this.authService.logoutUser()
-            .then(res => {
-              console.log(res);
-              alertMessage = "Logout successful";
-              this.presentAlert(alertMessage);
+  logOut() {
 
-              //this.navCtrl.navigateForward('home');
-            }, err => {
+    var alertMessage = "";
+    console.log("inside logout user");
+    //console.log(value.email);
+    //console.log(value.password);
 
-              console.log(err);
-              this.presentAlert(err.message);
-            })
-         this.menuCtrl.toggle();
-         this.navCtrl.navigateForward('/home');
-     }
+    this.authService.logoutUser()
+      .then(res => {
+        console.log(res);
+        alertMessage = "Logout successful";
+        this.presentAlert(alertMessage);
 
-      async presentAlert(alertMessage: string) {
+        //this.navCtrl.navigateForward('home');
+      }, err => {
 
-           console.log("called function presentAlert with param");
-           const alert = await this.alertController.create({
-             header: 'Alert',
-             subHeader: '',
-             //message: this.errorMessage,
-             message: alertMessage,
-             buttons: ['OK']
-           });
+        console.log(err);
+        this.presentAlert(err.message);
+      })
+    this.menuCtrl.toggle();
+    this.navCtrl.navigateForward('/home');
+  }
 
-           await alert.present();
-         }
+  async presentAlert(alertMessage: string) {
+
+    console.log("called function presentAlert with param");
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: '',
+      //message: this.errorMessage,
+      message: alertMessage,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
 
 }

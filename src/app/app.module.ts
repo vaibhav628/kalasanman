@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -19,6 +19,11 @@ import { environment } from '../environments/environment';
 import { AuthenticateService } from './services/authentication.service';
 
 import * as firebase from 'firebase';
+
+/* added to support FCM push notifications*/
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { FcmService } from './services/fcm.service'
+import { AngularFirestore } from '@angular/fire/firestore';
 
 firebase.initializeApp(environment.firebase);
 
@@ -34,15 +39,17 @@ firebase.initializeApp(environment.firebase);
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule
-
-
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthenticateService,
+    /* added to support FCM push notifications*/
+    Firebase,
+    FcmService,
+    AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
