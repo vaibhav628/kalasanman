@@ -5,7 +5,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 exports.lastUpdate = functions.database
-  .ref("/kalasanman/test/{testId}")
+  .ref("/kalasanman/news/{newsId}")
   .onUpdate(async (change, context) => {
 
     console.log("inside function lastUpdate");
@@ -20,9 +20,9 @@ exports.lastUpdate = functions.database
     const payload = {
       notification: {
         title: 'New Event',
-        body: msg.date + '\n' + msg.name,
+        body: msg.Headline + '\n' + msg.Synopsis,
         icon: 'https://goo.gl/Fz9nrQ',
-        click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com`,
+        click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
       }
     }
     //console.log ("payload:" + payload);
@@ -46,16 +46,16 @@ exports.lastUpdate = functions.database
 
 // Sends a notifications to all users when a new message is posted.
 exports.sendNotifications = functions.database
-  .ref("/kalasanman/test/{testId}").onCreate(
+  .ref("/kalasanman/news/{newsId}").onCreate(
     async (snapshot, context) => {
       // Notification details.
       const msg = snapshot.val();
       const payload = {
         notification: {
           title: 'New Event',
-          body: msg.date + '\n' + msg.name,
+          body: msg.Headline + '\n' + msg.Synopsis,
           icon: 'https://goo.gl/Fz9nrQ',
-          click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com`,
+          click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
         }
       };
 
