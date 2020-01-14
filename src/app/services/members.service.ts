@@ -39,10 +39,10 @@ export class MembersService {
 
           const now = new Date();
           this.dateadded = now.toISOString();
-          firebase.database().ref('kalasanman/reviews/' + record.fname ).set({
+          firebase.database().ref('kalasanman/donations/' + record.fname ).set({
           fullname : record.fname,
           email : record.email,
-          reviewtext : record.reviewtext,
+          reviewtext : record.cnumber,
           modified : this.dateadded
 
         });
