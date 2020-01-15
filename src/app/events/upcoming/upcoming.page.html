@@ -1,12 +1,15 @@
 <ion-content color="dark">
     <ion-grid>
         <ion-row>
-            <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let event of infos; let i = index"  id = "home-card" >
+            <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let event of infos; let i = index"  id = "home-card"  >
                 <ion-card>
                     <ion-card-header>
                         <ion-card-subtitle color="primary">{{ event.Date }} : {{ event.Name }}</ion-card-subtitle>
                     </ion-card-header>
                     <img src={{event.ImageURL}}>
+                    <div class="topRight">
+                        <a (click)="goToTicketURL(event.TicketURL)">Tickets</a>
+                    </div>
                     <div class="myOverlay">
                         <div>Author: {{ event.Author }}</div>
                         <div>Directed By: {{ event.Director }}</div>

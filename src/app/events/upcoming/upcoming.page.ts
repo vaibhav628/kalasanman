@@ -38,6 +38,13 @@ export class UpcomingPage implements OnInit {
   ngOnInit() {
   };
 
+  goToTicketURL(URL) {
+
+    //Go To external url for ticket purchase
+    window.open(URL);
+
+  }
+
 }
 
 export const snapshotToArray = snapshot => {
