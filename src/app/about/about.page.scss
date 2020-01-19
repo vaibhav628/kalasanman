@@ -1,10 +1,11 @@
 ion-card{
-  --background: #021b46;
-  --color: #fff;
-}
+   margin-bottom: -10px !important;
 
+}
 ion-content.background{
     --background: url(../../assets/496ecb14589707.562865d064f9e.png) ;
+}
 
-
+ion-card-title {
+    font-size: 30px;
 }

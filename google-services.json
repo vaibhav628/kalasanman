@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "425876689460",
+    "firebase_url": "https://kalasanman-e68fa.firebaseio.com",
+    "project_id": "kalasanman-e68fa",
+    "storage_bucket": "kalasanman-e68fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425876689460:android:a31a9a0096dd3922e0b061",
+        "android_client_info": {
+          "package_name": "io.ionic.kalasanman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425876689460-ndlgcaet52rhprs76v9bushclju829e7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGkzi0_RTxReVKbe0bIXSsAnHYHvHhjUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425876689460-ndlgcaet52rhprs76v9bushclju829e7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "425876689460-37b6iiallv15jb4b9trpfc9o1b4u51oh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kalasanman"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

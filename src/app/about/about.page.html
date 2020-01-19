@@ -10,61 +10,35 @@
 </ion-header>
 
 
-<ion-content class="background">
 
-  <ion-card color="secondary" align="left" size="small">
+<ion-content class="background">
+  <ion-card color="primary" align="left" size="small">
     <ion-card-content >
-        <ion-card color="primary">
-          <ion-card-header color="light">
-            <p  >
+            <h6>
               Founded on an auspicious Maharashtra Day on May 1st 2019, KalaSanman is a platform for Performing Arts.
               KalaSanman....To Respect and Showcase the Performing Arts of the Greater Cincinnati Area Performers!!!
-
-              KalaSanman provides platform for performance of a play, dance, recitals, music, or any other performing art by local artists!!!
-            </p>
-          </ion-card-header>
-        </ion-card>
+            </h6>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header color="secondary">
-      <ion-card-subtitle size="small" align="center" color="light">Executive Committee</ion-card-subtitle>
 
-      <ion-card color="dark">
-        <ion-card-header color="primary">
-          <p >Parag Kanvinde - Director & President</p>
-        </ion-card-header>
-      </ion-card>
+      <ion-grid>
+        <ion-col *ngFor="let director of (bod); let i = index"  >
+          <ion-card>
+            <ion-item>
+              <ion-avatar slot="start" >
+                <img src={{director.Thumbnail}}>
+              </ion-avatar>
+              <ion-label >
+                <h1>{{ director.Name }}</h1>
+                <p>{{ director.Title }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-grid>
+  </ion-content >
 
-      <ion-card color="dark">
-        <ion-card-header color="primary">
-          <p >Radhika Chitnis - Director</p>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card color="dark">
-        <ion-card-header color="primary">
-          <p >Manisha Godbole - Director</p>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card color="dark">
-        <ion-card-header color="primary">
-          <p >Ashish Jha - Director</p>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card color="dark">
-        <ion-card-header color="primary">
-          <p >Vaibhav Deshpande - Treasurer</p>
-        </ion-card-header>
-      </ion-card>
-
-    </ion-card-header>
-  </ion-card>
-
-</ion-content>
 
 <ion-footer>
   <ion-toolbar color="secondary" align="center">

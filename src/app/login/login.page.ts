@@ -74,7 +74,7 @@ export class LoginPage implements OnInit {
         console.log(res);
         this.events.publish('loggedin');
         this.errorMessage = "";
-        this.navCtrl.navigateForward('/membership');
+        this.navCtrl.navigateForward('/newsfeed');
       }, err => {
         this.errorMessage = err.message;
         this.alertMessage = err.message;

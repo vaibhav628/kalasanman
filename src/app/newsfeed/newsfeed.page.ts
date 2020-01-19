@@ -14,7 +14,8 @@ import * as firebase from 'firebase/app';
 export class NewsfeedPage implements OnInit {
 
   newsfeed = [];
-  ref = firebase.database().ref('/kalasanman/news').orderByChild('Date');
+  ref = firebase.database().ref('/kalasanman/news');
+  //.orderByChild('Number')
 
   constructor(
            private navCtrl: NavController,
