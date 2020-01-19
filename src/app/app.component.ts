@@ -40,9 +40,9 @@ export class AppComponent {
       icon: 'globe'
     },
     {
-      title: 'Membership',
+      title: 'Interests',
       url: '/membership',
-      icon: 'people'
+      icon: 'videocam'
     },
     {
       title: 'Events',
@@ -58,6 +58,11 @@ export class AppComponent {
       title: 'Reviews',
       url: '/reviews',
       icon: 'text'
+    },
+    {
+          title: 'Membership & Tickets',
+          url: '/purchase',
+          icon: 'basket'
     },
     {
       title: 'About',

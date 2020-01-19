@@ -28,17 +28,22 @@ export class AboutPage implements OnInit {
 
         console.log("about constructor called")
 
+
+  }
+
+  ngOnInit() {
+
+
         this.ref.on('value', resp => {
         this.bod = [];
         this.bod = snapshotToArray(resp);
 
         console.log(this.bod);
         console.log(this.bod[0].Name);
+
        });
 
-  }
 
-  ngOnInit() {
   }
 
 }

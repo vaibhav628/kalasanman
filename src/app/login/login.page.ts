@@ -86,8 +86,6 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateForward('/register');
   }
 
-
-
   async presentAlert(alertMessage: string) {
 
     console.log("called function presentAlert with param");
