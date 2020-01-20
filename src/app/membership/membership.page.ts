@@ -84,6 +84,7 @@ export class MembershipPage implements OnInit {
     if(this.authService.userDetails()){
       this.userEmail = this.authService.userDetails().email;
     }else{
+      this.presentAlertNoButton("Please login to access this section!");
       this.navCtrl.navigateBack('/login');
     }
 
@@ -159,6 +160,20 @@ export class MembershipPage implements OnInit {
       console.log(error);
     })
   }
+
+     async presentAlertNoButton(alertMessage: string) {
+
+        console.log("called function presentAlert with param");
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: '',
+          //message: this.errorMessage,
+          message: alertMessage,
+          buttons: ['OK']
+        });
+
+        await alert.present();
+      }
 
     async presentAlert(alertMessage: string) {
 

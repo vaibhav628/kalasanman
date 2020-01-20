@@ -15,8 +15,8 @@
     <form class="form"  [formGroup]="validations_form">
       <ion-card align="left">
         <ion-card-header color="primary">
-          Become a member of this highly skilled group of performers. Membership is $1 per month, minimum is $10.
-          Membership makes you eligible for appearing for audition. All memberships are subject to approvals from Board of Directors.
+          KalaSanman provides a platform for performance of a play, dance, recitals, music, or any other performing art by local artists.
+          Please provide your information so we know your interests!!!
         </ion-card-header>
       </ion-card>
 
@@ -155,7 +155,7 @@
 
     </form>
 
-    <ion-button  size = "full" color="danger" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >Request Membership</ion-button>
+    <ion-button  size = "full" color="danger" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >SUBMIT</ion-button>
 
 </ion-content>
 

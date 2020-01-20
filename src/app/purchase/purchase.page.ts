@@ -37,20 +37,12 @@ export class PurchasePage implements OnInit {
 
   ngOnInit() {
 
-  if(this.authService.userDetails()){
-        this.userEmail = this.authService.userDetails().email;
-      }else{
+  if(!this.authService.userDetails()) {
+
+        this.presentAlert("Please login to purchase tickets!");
         this.navCtrl.navigateBack('/login');
       }
   }
-
-  goToTicketURL(URL) {
-
-      //Go To external url for ticket purchase
-      window.open(URL);
-
-    }
-
 
   goToMembershipURL() {
 
@@ -65,6 +57,20 @@ export class PurchasePage implements OnInit {
           window.open(URL);
 
         }
+
+        async presentAlert(alertMessage: string) {
+
+                console.log("called function presentAlert with param");
+                const alert = await this.alertController.create({
+                  header: 'Alert',
+                  subHeader: '',
+                  //message: this.errorMessage,
+                  message: alertMessage,
+                  buttons: ['OK']
+                });
+
+                await alert.present();
+       }
 }
 
 export const snapshotToArray = snapshot => {

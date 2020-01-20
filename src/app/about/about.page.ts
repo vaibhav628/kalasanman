@@ -27,8 +27,6 @@ export class AboutPage implements OnInit {
   ) {
 
         console.log("about constructor called")
-
-
   }
 
   ngOnInit() {

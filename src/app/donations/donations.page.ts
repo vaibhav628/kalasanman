@@ -50,6 +50,7 @@ export class DonationsPage implements OnInit {
       if(this.authService.userDetails()){
         this.userEmail = this.authService.userDetails().email;
       }else{
+        this.presentAlert("Please login to access this section!");
         this.navCtrl.navigateBack('/login');
       }
 

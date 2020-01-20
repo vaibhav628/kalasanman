@@ -67,6 +67,8 @@ export class ReviewsPage implements OnInit {
     if(this.authService.userDetails()){
             this.userEmail = this.authService.userDetails().email;
           }else{
+
+            this.presentAlert("Please login to provide your feedback!");
             this.navCtrl.navigateBack('/login');
           }
 
