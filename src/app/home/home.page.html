@@ -1,43 +1,52 @@
-<ion-header >
-  <ion-toolbar color="secondary">
+<ion-header>
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align-title="center" class="bar-positive" size="medium">
+    <ion-title color="primary">
       KalaSanman
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background" >
+<ion-content>
 
-  <ion-grid style="height: 100%" >
+  <ion-grid>
 
-    <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%" >
-      <ion-card id = "home-card" color="primary" >
-          <img src="/assets/theaterstage-banner-3.jpg">
-          <p align="center" >Platform For Performing Arts</p>
-      </ion-card>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col class="align-self-center" size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4> We are a group of per­form­ing arts lovers whose aim is to help lo­cal tal­ent ful­fill their dreams of per­form­ing and bring cre­ative new pro­duc­tions to Cincin­nati the­atres. <br> <br> We are a group of rasik natak premi
+            (performing art lovers) whose aim is to help local talent fulfill their dreams of performing on stage and bring creative productions to stages in and around Cincinnati, Ohio.
+          </h4>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>Share</ion-fab-button>
     <ion-fab-list side="start">
-      <ion-fab-button color="primary" onclick="window.open('https://facebook.com/kalasanmancincy/', '_system', 'location=yes'); return false;"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-      <ion-fab-button color="primary" onclick="window.open('https://instagram.com/kalasanmancincy/', '_system', 'location=yes'); return false;"> <ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-      <ion-fab-button color="primary" onclick="window.open('https://twitter.com/#kalasanman/', '_system', 'location=yes'); return false;"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-      <ion-fab-button color="primary" (click)="alertEmailAddress()"><ion-icon name="mail"></ion-icon></ion-fab-button>
+      <ion-fab-button color="primary" onclick="window.open('https://facebook.com/kalasanmancincy/', '_system', 'location=yes'); return false;">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" onclick="window.open('https://instagram.com/kalasanmancincy/', '_system', 'location=yes'); return false;">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" onclick="window.open('https://twitter.com/#kalasanman/', '_system', 'location=yes'); return false;">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" (click)="alertEmailAddress()">
+        <ion-icon name="mail"></ion-icon>
+      </ion-fab-button>
 
     </ion-fab-list>
   </ion-fab>
 
-</ion-content >
+</ion-content>
 
 <ion-footer>
-  <ion-toolbar color="secondary">
-    <ion-title size="small" align="center">
-      KalaSanman
-    </ion-title>
+  <ion-toolbar>
+    <ion-title color="primary">KalaSanman</ion-title>
   </ion-toolbar>
 </ion-footer>

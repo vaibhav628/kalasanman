@@ -8,6 +8,9 @@ import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 
+
+
+
 /* added to support FCM push notifications*/
 import { FcmService } from './services/fcm.service'
 import { ToastController } from '@ionic/angular';
@@ -22,27 +25,24 @@ export class AppComponent {
 
 
   showButton: any = false;  //will not show the log out button by default
-
+  dark: any = true;
   public appPages = [
     {
       title: 'Home',
       url: '/home',
       icon: 'home'
     },
+    /*
     {
       title: 'Login',
       url: '/login',
       icon: 'unlock'
     },
+    */
     {
       title: 'Newsfeed',
       url: '/newsfeed',
       icon: 'globe'
-    },
-    {
-      title: 'Membership',
-      url: '/membership',
-      icon: 'people'
     },
     {
       title: 'Events',
@@ -50,19 +50,29 @@ export class AppComponent {
       icon: 'headset'
     },
     {
+      title: 'About',
+      url: '/about',
+      icon: 'help-circle-outline'
+    }
+  ];
+  public accountPages = [
+
+    {
+      title: 'Membership',
+      url: '/membership',
+      icon: 'people'
+    },
+/*
+    {
       title: 'Donations',
       url: '/donations',
       icon: 'logo-usd'
     },
+*/
     {
       title: 'Reviews',
       url: '/reviews',
       icon: 'text'
-    },
-    {
-      title: 'About',
-      url: '/about',
-      icon: 'help-circle-outline'
     }
   ];
 
@@ -133,6 +143,7 @@ export class AppComponent {
         console.log(err);
         this.presentAlert(err.message);
       })
+      this.showButton = false;
     this.menuCtrl.toggle();
     this.navCtrl.navigateForward('/home');
   }

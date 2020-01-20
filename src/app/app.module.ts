@@ -18,12 +18,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { AuthenticateService } from './services/authentication.service';
 
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 /* added to support FCM push notifications*/
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { FcmService } from './services/fcm.service'
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FormsModule } from '@angular/forms';
+
 
 firebase.initializeApp(environment.firebase);
 
@@ -32,6 +34,7 @@ firebase.initializeApp(environment.firebase);
   entryComponents: [],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,

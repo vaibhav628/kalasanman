@@ -1,35 +1,65 @@
-<ion-app>
-  <ion-split-pane>
-    <ion-menu type="overlay">
+<ion-app [class.dark-theme]="dark">
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content">
       <ion-header>
-        <ion-toolbar color="secondary">
-          <ion-title>Menu</ion-title>
+        <ion-toolbar>
+          <ion-title color="primary">Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content color="secondary">
-        <ion-list size="small">
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="primary">
+      <ion-content>
+        <ion-list lines="none">
+          <ion-list-header>
+            Navigate
+          </ion-list-header>
+          <ion-menu-toggle autoHide="false" *ngIf="!showButton">
+            <ion-item routerDirection="'root'" routerLink="/login">
+              <ion-icon slot="start" name="unlock"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" routerDirection="root" detail="false">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-
-          <ion-item [routerDirection]="'root'" (click)="logOut()" color="primary">
+        </ion-list>
+        <ion-list *ngIf="showButton" lines="none">
+          <ion-list-header>
+            Account
+          </ion-list-header>
+          <ion-menu-toggle autoHide="false" *ngFor="let q of accountPages; let j = index">
+            <ion-item [routerDirection]="'root'" [routerLink]="[q.url]" routerDirection="root" detail="false">
+              <ion-icon slot="start" [name]="q.icon"></ion-icon>
+              <ion-label>
+                {{q.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item [routerDirection]="'root'" (click)="logOut()" *ngIf="showButton">
             <ion-icon slot="start" name="key"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>
-
         </ion-list>
+        <!--
+        <ion-list>
+          <ion-item>
+            <ion-label>
+              Dark Theme
+            </ion-label>
+            <ion-toggle [(ngModel)]="dark"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        -->
       </ion-content>
       <ion-footer>
-        <ion-toolbar color="secondary">
+        <ion-toolbar>
           <ion-title size="small">0.0.15</ion-title>
         </ion-toolbar>
       </ion-footer>
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

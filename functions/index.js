@@ -21,8 +21,8 @@ exports.lastUpdate = functions.database
       notification: {
         title: 'New Event',
         body: msg.Headline + '\n' + msg.Synopsis,
-        icon: 'https://goo.gl/Fz9nrQ',
-        click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
+        //icon: 'https://goo.gl/Fz9nrQ',
+        //click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
       }
     }
     //console.log ("payload:" + payload);
@@ -54,8 +54,8 @@ exports.sendNotifications = functions.database
         notification: {
           title: 'New Event',
           body: msg.Headline + '\n' + msg.Synopsis,
-          icon: 'https://goo.gl/Fz9nrQ',
-          click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
+          //icon: 'https://goo.gl/Fz9nrQ',
+          //click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/newsfeed`,
         }
       };
 
