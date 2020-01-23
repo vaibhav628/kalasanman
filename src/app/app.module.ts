@@ -25,7 +25,8 @@ import { Firebase } from '@ionic-native/firebase/ngx';
 import { FcmService } from './services/fcm.service'
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
-
+/*windo.open does not work ios*/
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 firebase.initializeApp(environment.firebase);
 
@@ -51,6 +52,7 @@ firebase.initializeApp(environment.firebase);
     Firebase,
     FcmService,
     AngularFirestore,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
