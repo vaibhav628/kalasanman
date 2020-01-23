@@ -50,6 +50,11 @@ export class AppComponent {
       icon: 'headset'
     },
     {
+      title: 'Membership & Tickets',
+      url: '/purchase',
+      icon: 'basket'
+    },
+    {
       title: 'About',
       url: '/about',
       icon: 'help-circle-outline'
@@ -58,9 +63,9 @@ export class AppComponent {
   public accountPages = [
 
     {
-      title: 'Membership',
+      title: 'Interests',
       url: '/membership',
-      icon: 'people'
+      icon: 'videocam'
     },
 /*
     {
