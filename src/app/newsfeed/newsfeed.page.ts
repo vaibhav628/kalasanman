@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { AlertController } from '@ionic/angular';
 import { AlleventsService } from '../services/allevents.service';
 import * as firebase from 'firebase/app';
+import { Utils } from '../services/util.service';
 
 @Component({
   selector: 'app-newsfeed',
@@ -14,13 +15,15 @@ import * as firebase from 'firebase/app';
 export class NewsfeedPage implements OnInit {
 
   newsfeed = [];
-  ref = firebase.database().ref('/kalasanman/news').orderByChild('Date');
+  ref = firebase.database().ref('/kalasanman/news');
+  //.orderByChild('Date');
 
   constructor(
            private navCtrl: NavController,
            private authService: AuthenticateService,
            private alleventsService: AlleventsService,
            public alertController: AlertController,
+           private util: Utils 
   ) {
             console.log("news constructor called")
 
@@ -37,7 +40,8 @@ export class NewsfeedPage implements OnInit {
   }
 
     externalURL(URL) {
-        window.open(URL);
+        this.util.openWithSystemBrowser(URL);
+       // window.open(URL);
     }
 
 }

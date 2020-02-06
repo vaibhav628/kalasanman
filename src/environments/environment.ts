@@ -5,6 +5,16 @@
 export const environment = {
   production: false,
   firebase: {
+    /*
+    apiKey: "AIzaSyBPgls1Bq4HiIZDoLeo609EHMYKZKiTQRk",
+    authDomain: "kalasanmandev.firebaseapp.com",
+    databaseURL: "https://kalasanmandev.firebaseio.com",
+    projectId: "kalasanmandev",
+    storageBucket: "kalasanmandev.appspot.com",
+    messagingSenderId: "991550151979",
+    appId: "1:991550151979:web:8784dc1dd09ed340f8f96e",
+    measurementId: "G-MGXQ4W81TV"
+    */
     apiKey: "AIzaSyAKHIwm7_jTgEurBRBKWTVnlVzuefcMrsY",
     authDomain: "kalasanman-e68fa.firebaseapp.com",
     databaseURL: "https://kalasanman-e68fa.firebaseio.com",

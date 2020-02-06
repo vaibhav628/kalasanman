@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { AlertController } from '@ionic/angular';
 import { AlleventsService } from '../services/allevents.service';
 import * as firebase from 'firebase/app';
-import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+import { Utils } from '../services/util.service';
 
 @Component({
   selector: 'app-purchase',
@@ -13,23 +13,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
   styleUrls: ['./purchase.page.scss'],
 })
 export class PurchasePage implements OnInit {
-  options : InAppBrowserOptions = {
-      location : 'yes',//Or 'no'
-      hidden : 'no', //Or  'yes'
-      clearcache : 'yes',
-      clearsessioncache : 'yes',
-      zoom : 'yes',//Android only ,shows browser zoom controls
-      hardwareback : 'yes',
-      mediaPlaybackRequiresUserAction : 'no',
-      shouldPauseOnSuspend : 'no', //Android only
-      closebuttoncaption : 'Close', //iOS only
-      disallowoverscroll : 'no', //iOS only
-      toolbar : 'yes', //iOS only
-      enableViewportScale : 'no', //iOS only
-      allowInlineMediaPlayback : 'no',//iOS only
-      presentationstyle : 'pagesheet',//iOS only
-      fullscreen : 'yes',//Windows only
-};
+
    infos = [];
    ref = firebase.database().ref('/kalasanman/events/upcoming');
 
@@ -38,7 +22,8 @@ export class PurchasePage implements OnInit {
               private authService: AuthenticateService,
               private alleventsService: AlleventsService,
               public alertController: AlertController,
-              private theInAppBrowser: InAppBrowser
+              private util: Utils
+
    ) {
 
         console.log("Purchase constructor called")
@@ -66,11 +51,11 @@ export class PurchasePage implements OnInit {
 
       //Go To external url for ticket purchase
       //window.open("https://www.hungamacity.com/membership/14/kalasanman-membership",'_blank');
-      this.openWithSystemBrowser("https://www.hungamacity.com/membership/14/kalasanman-membership");
+      this.util.openWithSystemBrowser("https://www.hungamacity.com/membership/14/kalasanman-membership");
     }
 
   goToTicketURL(URL) {
-      this.openWithSystemBrowser(URL);
+      this.util.openWithSystemBrowser(URL);
           //Go To external url for ticket purchase
           //window.open(URL);
 
@@ -89,18 +74,7 @@ export class PurchasePage implements OnInit {
 
                 await alert.present();
        }
-       public openWithSystemBrowser(url : string){
-           let target = "_system";
-           this.theInAppBrowser.create(url,target,this.options);
-       }
-       public openWithInAppBrowser(url : string){
-           let target = "_blank";
-           this.theInAppBrowser.create(url,target,this.options);
-       }
-       public openWithCordovaBrowser(url : string){
-           let target = "_self";
-           this.theInAppBrowser.create(url,target,this.options);
-       }
+
 }
 
 export const snapshotToArray = snapshot => {

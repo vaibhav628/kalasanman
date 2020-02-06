@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+import * as firebase from 'firebase';
+import { Utils } from '../services/util.service';
 
 @Component({
   selector: 'app-home',
@@ -9,26 +11,9 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
 })
 export class HomePage {
 
-  options : InAppBrowserOptions = {
-      location : 'yes',//Or 'no'
-      hidden : 'no', //Or  'yes'
-      clearcache : 'yes',
-      clearsessioncache : 'yes',
-      zoom : 'yes',//Android only ,shows browser zoom controls
-      hardwareback : 'yes',
-      mediaPlaybackRequiresUserAction : 'no',
-      shouldPauseOnSuspend : 'no', //Android only
-      closebuttoncaption : 'Close', //iOS only
-      disallowoverscroll : 'no', //iOS only
-      toolbar : 'yes', //iOS only
-      enableViewportScale : 'no', //iOS only
-      allowInlineMediaPlayback : 'no',//iOS only
-      presentationstyle : 'pagesheet',//iOS only
-      fullscreen : 'yes',//Windows only
-};
   //articles;
   //constructor(private apiService: ApiService){}
-  constructor(public alertController: AlertController, private theInAppBrowser: InAppBrowser) {
+  constructor(public alertController: AlertController, private util: Utils) {
 
   }
 
@@ -43,7 +28,10 @@ export class HomePage {
   alertEmailAddress() {
     this.presentAlert("Please write to us @ KalaSanmanCincy@gmail.com")
   }
+  openWithSystemBrowser(url){
+    this.util.openWithSystemBrowser(url);
 
+  }
   async presentAlert(alertMessage: string) {
 
     console.log("called function presentAlert in membership");
@@ -56,16 +44,22 @@ export class HomePage {
 
     await alert.present();
   }
-  public openWithSystemBrowser(url : string){
-      let target = "_system";
-      this.theInAppBrowser.create(url,target,this.options);
+
+/*
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    var storageRef = firebase.storage().ref('KalaSanman/logo');
+    storageRef.child('logo_1024x1024.png').getDownloadURL().then(function(url) {
+
+
+      // Or inserted into an <img> element:
+
+      var img = document.getElementById('myimg');
+      (<HTMLImageElement>img).src = url;
+    }).catch(function(error) {
+      // Handle any errors
+    });
   }
-  public openWithInAppBrowser(url : string){
-      let target = "_blank";
-      this.theInAppBrowser.create(url,target,this.options);
-  }
-  public openWithCordovaBrowser(url : string){
-      let target = "_self";
-      this.theInAppBrowser.create(url,target,this.options);
-  }  
+  */
 }
