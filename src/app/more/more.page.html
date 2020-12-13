@@ -1,0 +1,103 @@
+<ion-header >
+  <ion-toolbar class="new-header-background-color">
+
+    <ion-title align-title="center" class="bar-positive" size="medium">
+      <img src="/assets/KalaSanman-25.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="background" align="center">
+<ion-grid >
+
+  <ion-col >
+    <ion-card type="button" button="true" (click)="goToMembershipPage()">
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/person-add-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>JOIN KALASANMAN</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+
+  <ion-col >
+    <ion-card button="true" (click)="goToPurchasePage()">
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/ticket-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>TICKETS</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+
+  <ion-col >
+    <ion-card button="true" (click)="goToReviewsPage()">
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/pencil-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>FEEDBACK</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+
+  <ion-col >
+    <ion-card button="true" (click)="goToDonationsPage()">
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/cash-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>DONATIONS</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+
+  <!-- Will enable this once Prop Inventory search is ready
+  <ion-col >
+    <ion-card button="true" >
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/reader-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>PROP INVENTORY</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+  //-->
+
+  <ion-col >
+    <ion-card button="true" (click)="logOut()">
+      <ion-item >
+        <ion-avatar slot="end" >
+          <ion-icon size="large" color="light" src="/assets/icon/lock-closed-outline.svg" > </ion-icon>
+        </ion-avatar>
+        <ion-label aligh="right" color="light">
+          <h2>LOGOUT</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+
+  <ion-chip outline color="dark">
+    <ion-icon src="/assets/icon/snow-outline.svg"></ion-icon>
+    <ion-label >App Version 1.0</ion-label>
+    <ion-icon src="/assets/icon/snow-outline.svg"></ion-icon>
+  </ion-chip>
+
+</ion-grid>
+
+
+</ion-content >

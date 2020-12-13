@@ -27,11 +27,12 @@ export class AuthenticateService {
   }
 
   logoutUser(){
+    console.log("Inside authentication.service.logoutUser()");
     return new Promise((resolve, reject) => {
       if(firebase.auth().currentUser){
         firebase.auth().signOut()
         .then(() => {
-          console.log("LOG Out");
+          console.log("Log Out");
           resolve();
         }).catch((error) => {
           reject();

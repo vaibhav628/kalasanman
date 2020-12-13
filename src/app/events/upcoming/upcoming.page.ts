@@ -4,6 +4,7 @@ import { AuthenticateService } from '../../services/authentication.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { AlleventsService } from '../../services/allevents.service';
+import { IonSlides } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -15,6 +16,10 @@ export class UpcomingPage implements OnInit {
 
  infos = [];
  ref = firebase.database().ref('/kalasanman/events/upcoming');
+ slideOptions = {
+        initialSlide: 1,
+        speed: 1000,
+  };
 
   constructor(
          private navCtrl: NavController,
@@ -39,10 +44,21 @@ export class UpcomingPage implements OnInit {
   };
 
   goToTicketURL(URL) {
-
     //Go To external url for ticket purchase
     window.open(URL);
+  }
 
+    goToReviewsURL(eventName) {
+
+      //Below works just fine but wanted to pass event name to reviews
+      //this.navCtrl.navigateForward('/base/more/reviews');
+
+      console.log(eventName);
+      this.navCtrl.navigateForward('/base/more/reviews');
+  }
+
+   slidesDidLoad(slides: IonSlides) {
+        slides.startAutoplay();
   }
 
 }

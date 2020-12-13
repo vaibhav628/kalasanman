@@ -31,15 +31,8 @@ export class LoginPage implements OnInit {
     public alertController: AlertController,
 
   ) { }
-  /*
-      ionViewDidLoad(){
 
-                this.events.publish('loggedin');
-           }
-  */
   ngOnInit() {
-
-    //this.myErrorMessage = " ";
 
     this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
@@ -100,7 +93,6 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
-
 
   resetPassword(value) {
     console.log("called function resetPassword");

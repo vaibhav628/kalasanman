@@ -1,9 +1,26 @@
 ion-card{
-     margin: 1px 10px;
+     margin: 5px 10px;
+     //background:#FFFFF0;
+     //background: #FFEBCD;
+     //color: #A52A2A;
+     //--background: #800000;
+     --background: #FFFFFF;
 }
 
 ion-card-title {
-    font-size: 30px;
+    font-size: 17px;
+    color:#800000;
+}
+ion-card-subtitle {
+    font-size: 15px;
+    color:#800000;
+}
+
+ion-content.background{
+     //--background: 	#800000;
+     //--background:#FFFFF0;
+     //--background: #A52A2A;
+     --background: #FAEBD7;
 }
 
 .myCard{

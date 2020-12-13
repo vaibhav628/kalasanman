@@ -85,7 +85,7 @@ export class MembershipPage implements OnInit {
       this.userEmail = this.authService.userDetails().email;
     }else{
       this.presentAlertNoButton("Please login to access this section!");
-      this.navCtrl.navigateBack('/login');
+      this.navCtrl.navigateBack('/base/login');
     }
 
         this.validations_form = this.formBuilder.group({
@@ -147,7 +147,7 @@ export class MembershipPage implements OnInit {
     this.membersService.writeUserData(record);
     this.alertMessage = "Thank you. Would you like to pay your membership dues now?";
     this.presentAlert(this.alertMessage);
-    this.navCtrl.navigateForward('/home');
+    this.navCtrl.navigateForward('/base/home');
   }
 
  logout(){
@@ -189,7 +189,7 @@ export class MembershipPage implements OnInit {
                          cssClass: 'secondary',
                          handler: (blah) => {
                            console.log('Confirm Yes: blah');
-                           window.open("https://www.hungamacity.com/membership/14/kalasanman-membership");
+                           window.open("https://www.hungamacity.com/membership/33/kalasanman-annual-membership-2021");
                          }
                        }, {
                          text: 'No',

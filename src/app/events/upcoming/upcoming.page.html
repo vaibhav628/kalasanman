@@ -1,23 +1,51 @@
-<ion-content color="dark">
-    <ion-grid>
-        <ion-row>
-            <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let event of infos; let i = index"  id = "home-card"  >
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-subtitle color="primary">{{ event.Date }} : {{ event.Name }}</ion-card-subtitle>
-                    </ion-card-header>
-                    <img src={{event.ImageURL}}>
-                    <div class="topRight">
-                        <a (click)="goToTicketURL(event.TicketURL)">Tickets</a>
-                    </div>
-                    <div class="myOverlay">
-                        <div>Author: {{ event.Author }}</div>
-                        <div>Directed By: {{ event.Director }}</div>
-                        <div>Cast: {{ event.Cast }}</div>
-                    </div>
+<ion-header >
+    <ion-toolbar class="new-header-background-color">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title align-title="center" class="bar-positive" size="medium">
+            <img src="/assets/KalaSanman-25.png">
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="background" >
+
+        <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)" >
+
+            <ion-slide *ngFor="let event of infos" >
+
+                <ion-card >
+                <img class="test-image" src={{event.ImageURL}} />
+                <ion-card-header>
+                    <ion-card-subtitle align="left"> {{ event.Type }}</ion-card-subtitle>
+                    <ion-card-title align="left">{{ event.Name }}</ion-card-title>
+                    <ion-card-subtitle align="left">Author: {{ event.Author }}</ion-card-subtitle>
+                    <ion-card-subtitle align="left">Directed By: {{ event.Director }}</ion-card-subtitle>
+                    <ion-card-subtitle align="left">Cast: {{ event.Cast }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content align="left" >
+                    {{ event.Synopsis }}
+
+                    <ion-row >
+                        <ion-col >
+                            <div align="left" >
+                                <a  (click)="goToTicketURL(event.TicketURL)">View On Demand</a>
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div align="right">
+                                <a (click)="goToReviewsURL(event.Name)">Write A Review</a>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-card-content>
                 </ion-card>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+            </ion-slide>
+
+        </ion-slides>
+
 </ion-content>
 

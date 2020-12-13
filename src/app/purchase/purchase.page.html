@@ -1,45 +1,34 @@
-<ion-header>
-  <ion-toolbar color="secondary">
+<ion-header >
+  <ion-toolbar class="new-header-background-color">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align="left" size="medium">
-      Membership & Tickets
+    <ion-title align-title="center" class="bar-positive" size="medium">
+      <img src="/assets/KalaSanman-25.png">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content align="center" class="background">
 
-  <ion-grid style="height: 100%" >
-    <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%">
-      <ion-card id="login-card" >
-          <ion-list color="dark">
-            <ion-item align="center" >
-              <div >
+      <ion-card  >
+        <img src="/assets/KalaSanman.svg">
+        <ion-card class="tickets" align="left" button=true *ngFor="let membership of membershipurl" (click)="goToMembershipURL(membership.TicketURL)">
+          <ion-card-header >
+            <ion-card-title color="dark" align="left">KALASANMAN MEMBERSHIP</ion-card-title>
+          </ion-card-header>
+        </ion-card>
 
-                <ion-button  size = "medium" color="danger" (click)="goToMembershipURL()" class="submit-btn" type="submit" >KALASANMAN MEMBERSHIP</ion-button>
-              </div>
-            </ion-item>
-            <ion-col align="middle" size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let event of infos; let i = index"  id = "home-card"  >
-              <ion-item >
-                  <div >
-                      <ion-button  size = "medium" color="primary" (click)="goToTicketURL(event.TicketURL)" class="submit-btn" type="submit"   >{{ event.Date }} : {{ event.Name}}</ion-button>
-                  </div>
-              </ion-item>
-            </ion-col>
-          </ion-list>
+        <ion-card button=true align="left"  *ngFor="let event of infos" (click)="goToTicketURL(event.TicketURL)">
+          <ion-item *ngIf="event.Status=='Online' || event.Status=='Theater'">
+            <ion-card-header >
+              <ion-card-title color="dark" align="left">{{ event.Name}}</ion-card-title>
+              <ion-card-subtitle color="dark" align="left">{{ event.Status}} : {{ event.Type}}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-item>
+        </ion-card>
       </ion-card>
-    </ion-row>
-  </ion-grid>
 
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="secondary" align="center">
-    <ion-title size="small" >
-      KalaSanman
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>
 

@@ -1,11 +1,52 @@
-ion-card{
-  --background: #021b46;
-  --color: #fff;
-}
+
 ion-icon{
   --gray: #ccc;
   --dark: #222;
 }
-ion-content.background{
-    --background: url(../../assets/496ecb14589707.562865d064f9e.png) ;
+
+ion-card{
+ --ion-background-color: #FFF8DC;
+}
+
+.container-banner {
+    //position: absolute;
+    top: 10%;
+    //left: 17%;
+    --background: #FFDEAD;
+    //transform: translate(-50%, -50%);
+
+}
+
+.ios, .md {
+    login.page {
+
+        .scroll-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo {
+            height: 80%;
+
+            .cls-1 {
+                            opacity: 0;
+                            animation: 2s 1.5s linear fadeIn;
+                            animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+.cls-1 {
+                            opacity: 0;
+                            animation: 2s 1.5s linear fadeIn;
+                            animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+
+    100% {
+        opacity: 1;
+    }
+
 }

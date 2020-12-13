@@ -1,30 +1,60 @@
-<ion-header>
-  <ion-toolbar color="secondary">
+<ion-header >
+  <ion-toolbar class="new-header-background-color">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align="left" size="medium">
-      Donations
+    <ion-title align-title="center" class="bar-positive" size="medium">
+      <img src="/assets/KalaSanman-25.png">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content align="center" class="background">
 
-  <ion-grid style="height: 100%">
-    <ion-row class="ion-align-items-center ion-justify-content-center"  style="height: 100%">
-
-  <ion-card >
+  <ion-card align="left">
     <ion-card-header >
-      <p> Every small bit helps...especially for a recently established non-profit organization providing platform for performing arts!!!! </p>
+      <ion-text >
+      KalaSanman is a community organization that is exempt from federal income tax under the classification (501(c)(3).
+      KalaSanman has also been granted the status 509(a)(2) of a public charity in the Greater Cincinnati area that promotes performing arts among the local American population of South Asian Indian Origin!
+      There are multiple ways you can donate to KalaSanman.
+      </ion-text>
     </ion-card-header>
   </ion-card>
 
-  <ion-card>
+  <p>
+    <ion-chip outline color="secondary" (click)="zelleAlert()">
+      <ion-icon name="cash"></ion-icon>
+      <ion-label>Zelle</ion-label>
+    </ion-chip>
+    <ion-chip outline color="secondary" onclick="window.open('https://www.hungamacity.com/donation/38/kalasanman-donation-fund', '_system', 'location=yes'); return false;">
+      <ion-icon name="card"></ion-icon>
+      <ion-label>HungamaCity</ion-label>
+    </ion-chip>
+    <ion-chip outline color="secondary" (click)="checkAlert()">
+      <ion-icon name="cash"></ion-icon>
+      <ion-label>Check</ion-label>
+    </ion-chip>
+  </p>
+  <p>
+    <ion-chip outline color="secondary">
+      <ion-icon src="/assets/icon/arrow-down-circle-outline.svg"></ion-icon>
+      <ion-label>Need To Get In Touch</ion-label>
+      <ion-icon src="/assets/icon/arrow-down-circle-outline.svg"></ion-icon>
+    </ion-chip>
+  </p>
+
+  <ion-card class="form">
+
+    <ion-card-header >
+      <ion-text >
+        Let us know if you would like us to get in touch with you before you donate!!!
+      </ion-text>
+    </ion-card-header>
+
     <form class="form"  [formGroup]="validations_form">
+
       <ion-item>
-        <ion-label  position="floating" color="primary">Full Name</ion-label>
+        <ion-label  position="floating" color="secondary">Full Name</ion-label>
         <ion-input type="text" formControlName="fname"></ion-input>
       </ion-item>
       <div class="validation-errors" >
@@ -34,13 +64,21 @@
           </div>
         </ng-container>
       </div>
-      <ion-item>
-        <ion-label  position="floating" color="primary">Email</ion-label>
 
-        <ion-input  value="{{userEmail}}" type="text" formControlName="email"></ion-input>
-      </ion-item>
       <ion-item>
-        <ion-label  position="floating" color="primary">Contact Number</ion-label>
+        <ion-label  position="floating" color="secondary">Email</ion-label>
+        <ion-input  type="text" formControlName="femail"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.femail">
+          <div class="error-message" *ngIf="validations_form.get('femail').hasError(validation.type) && (validations_form.get('femail').dirty || validations_form.get('femail').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label  position="floating" color="secondary">Contact Number</ion-label>
         <ion-input type="text" formControlName="cnumber" placeholder="Ten Digit Phone Number"></ion-input>
       </ion-item>
       <div class="validation-errors" >
@@ -50,19 +88,13 @@
           </div>
         </ng-container>
       </div>
+
     </form>
 
-    <ion-button  size = "small" color="primary" (click)="saveDonationInterest(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >I'm Interested In Donating</ion-button>
+    <ion-button  size = "small" color="secondary" (click)="saveDonationInterest(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.valid" >I would love to help KalaSanman</ion-button>
 
   </ion-card>
-    </ion-row>
-  </ion-grid>
+
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="secondary" align="center">
-    <ion-title size="small" >
-      KalaSanman
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>
+

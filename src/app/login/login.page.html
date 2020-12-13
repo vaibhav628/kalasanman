@@ -1,29 +1,26 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar class="new-header-background-color">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title align="left" size="medium">
-      Login
+      <img src="/assets/KalaSanman-25.png">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content fullscreen>
+<ion-card align="top">
+  <img class="cls-1" src="/assets/KalaSanman.svg">
+</ion-card>
 
-<ion-content align="center" class="background">
-
-  <ion-grid style="height: 100%">
-    <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%">
-      <ion-card id="login-card">
-
-
-        <form class="form" [formGroup]="validations_form">
-
+<ion-card class="container-banner">
+        <form class="form" [formGroup]="validations_form" >
 
           <ion-list>
 
             <ion-item>
-              <ion-label position="floating" color="primary">Email</ion-label>
+              <ion-label position="floating" color="#800000">Email</ion-label>
               <ion-input type="text" formControlName="email"></ion-input>
               <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.email">
@@ -35,7 +32,7 @@
             </ion-item>
 
             <ion-item>
-              <ion-label position="floating" color="primary">Password</ion-label>
+              <ion-label position="floating" color="#800000">Password</ion-label>
               <ion-input type="{{passwordType}}" formControlName="password" class="form-control" required></ion-input>
               <ion-icon name="eye" gray item-end (click)="togglePassword()"></ion-icon>
 
@@ -49,36 +46,15 @@
             </ion-item>
 
             <p text-right>
-              Forgot password? <a (click)="resetPassword(validations_form.value)">Forgot password?</a>
+              <a (click)="resetPassword(validations_form.value)">Forgot password?</a>
             </p>
 
-            <ion-button expand="full" color="primary" (click)="loginUser(validations_form.value)" class="submit-btn" type="submit" [disabled]="!validations_form.valid">Login</ion-button>
+            <ion-button expand="block" shape="round" color="primary" (click)="loginUser(validations_form.value)" class="submit-btn" type="submit" [disabled]="!validations_form.valid">Login</ion-button>
 
-            <p text-center><a> Don't have an account?</a></p>
-
-            <ion-button expand="full" color="danger" (click)="tryRegister(validations_form.value)" [disabled]="!validations_form.valid">Register</ion-button>
+            <ion-button expand="block" shape="round" color="danger" (click)="tryRegister(validations_form.value)" [disabled]="!validations_form.valid">Don't have an account?</ion-button>
 
           </ion-list>
         </form>
-      </ion-card>
-    </ion-row>
-  </ion-grid>
 
+</ion-card>
 </ion-content>
-
-
-
-
-
-
-
-
-
-
-<ion-footer>
-  <ion-toolbar color="secondary" align="center">
-    <ion-title size="small">
-      KalaSanman
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>

@@ -1,33 +1,22 @@
-<ion-header>
-  <ion-toolbar color="secondary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title align="left" size="medium">
-      Member Interests
-    </ion-title>
-  </ion-toolbar>
+<ion-header >
+    <ion-toolbar class="new-header-background-color">
+        <ion-title align-title="center" class="bar-positive" size="medium">
+            <img src="/assets/KalaSanman-25.png">
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
-
 
 <ion-content align="center" class="background">
 
     <form class="form"  [formGroup]="validations_form">
-      <ion-card align="left">
-        <ion-card-header color="primary">
-          KalaSanman provides a platform for performance of a play, dance, recitals, music, or any other performing art by local artists.
-          Please provide your information so we know your interests!!!
-        </ion-card-header>
-      </ion-card>
 
       <ion-grid style="height: 100%">
 
-          <ion-row>
-    <ion-col size="8">
-      <div>
-        <ion-item>
-          <ion-label  position="floating" color="primary">Full Name</ion-label>
-          <ion-input type="text" formControlName="fname"></ion-input>
+
+    <ion-col >
+        <ion-item >
+          <ion-label  position="floating" >Full Name</ion-label>
+          <ion-input type="text"  formControlName="fname"></ion-input>
           <div class="validation-errors" >
             <ng-container *ngFor="let validation of validation_messages.fname">
               <div class="error-message" *ngIf="validations_form.get('fname').hasError(validation.type) && (validations_form.get('fname').dirty || validations_form.get('fname').touched)">
@@ -36,30 +25,11 @@
             </ng-container>
           </div>
         </ion-item>
-      </div>
     </ion-col>
-    <ion-col>
-      <div>
-        <ion-item>
-          <ion-label  position="floating" color="primary">Age Group</ion-label>
-          <ion-input type="text" formControlName="age" placeholder="30-40"></ion-input>
-          <div class="validation-errors" >
-            <ng-container *ngFor="let validation of validation_messages.age">
-              <div class="error-message" *ngIf="validations_form.get('age').hasError(validation.type) && (validations_form.get('age').dirty || validations_form.get('age').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-        </ion-item>
-      </div>
-    </ion-col>
-  </ion-row>
 
-          <ion-row>
           <ion-col>
-            <div>
               <ion-item>
-                <ion-label  position="floating" color="primary">Address</ion-label>
+                <ion-label  position="floating" >Address</ion-label>
                 <ion-input type="text" formControlName="address"></ion-input>
                 <div class="validation-errors" >
                   <ng-container *ngFor="let validation of validation_messages.address">
@@ -69,24 +39,21 @@
                   </ng-container>
                 </div>
               </ion-item>
-            </div>
-          </ion-col>
-      </ion-row>
 
-          <ion-row>
+          </ion-col>
         <ion-col >
-          <div>
+
             <ion-item>
-              <ion-label  position="floating" color="primary">Email</ion-label>
+              <ion-label  position="floating" >Email</ion-label>
               <ion-input readonly="true" value="{{userEmail}}" type="text" formControlName="email"></ion-input>
             </ion-item>
-          </div>
-        </ion-col>
-        <ion-col size="5">
-          <div>
-            <ion-item>
-              <ion-label  position="floating" color="primary">Contact Number</ion-label>
 
+        </ion-col>
+
+        <ion-row>
+          <ion-col >
+            <ion-item>
+              <ion-label  position="floating" >Contact Number</ion-label>
               <ion-input type="text" formControlName="cnumber" placeholder="Ten Digits"></ion-input>
               <div class="validation-errors" >
                 <ng-container *ngFor="let validation of validation_messages.cnumber">
@@ -96,15 +63,25 @@
                 </ng-container>
               </div>
             </ion-item>
-          </div>
-        </ion-col>
-      </ion-row>
-
-          <ion-row>
+          </ion-col>
         <ion-col>
-          <div>
             <ion-item>
-              <ion-label  position="floating" color="primary">Interests</ion-label>
+              <ion-label  position="floating" >Age Group</ion-label>
+              <ion-input type="text" formControlName="age" placeholder="30-40"></ion-input>
+              <div class="validation-errors" >
+                <ng-container *ngFor="let validation of validation_messages.age">
+                  <div class="error-message" *ngIf="validations_form.get('age').hasError(validation.type) && (validations_form.get('age').dirty || validations_form.get('age').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </ion-item>
+        </ion-col>
+        </ion-row>
+        <ion-col>
+
+            <ion-item>
+              <ion-label  position="floating">Interests</ion-label>
               <ion-input type="text" formControlName="interests" placeholder="Backstage,Perform,Stage,Sound"></ion-input>
               <div class="validation-errors" >
                 <ng-container *ngFor="let validation of validation_messages.interests">
@@ -114,15 +91,12 @@
                 </ng-container>
               </div>
             </ion-item>
-          </div>
-        </ion-col>
-      </ion-row>
 
-          <ion-row>
-        <ion-col size="6">
-          <div>
+        </ion-col>
+        <ion-col >
+
             <ion-item>
-              <ion-label  position="floating" color="primary">Art Preferences</ion-label>
+              <ion-label  position="floating" >Art Preferences</ion-label>
               <ion-input type="text" formControlName="art" placeholder="Theater,Music,Recital"></ion-input>
               <div class="validation-errors" >
                 <ng-container *ngFor="let validation of validation_messages.art">
@@ -132,12 +106,12 @@
                 </ng-container>
               </div>
             </ion-item>
-          </div>
+
         </ion-col>
         <ion-col >
-          <div>
+
             <ion-item>
-              <ion-label  position="floating" color="primary">Language Preference</ion-label>
+              <ion-label  position="floating" >Language Preference</ion-label>
               <ion-input type="text" formControlName="language" placeholder="Marathi,Hindi,English"></ion-input>
               <div class="validation-errors" >
                 <ng-container *ngFor="let validation of validation_messages.language">
@@ -147,24 +121,14 @@
                 </ng-container>
               </div>
             </ion-item>
-          </div>
+
         </ion-col>
-      </ion-row>
 
       </ion-grid>
 
     </form>
 
-    <ion-button  size = "full" color="danger" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >SUBMIT</ion-button>
+    <ion-button  size = "full" shape="round" color="danger" (click)="addMember(validations_form.value)" class="submit-btn" type="submit"  [disabled]="!validations_form.get('fname').valid" >JOIN KALASANMAN</ion-button>
 
 </ion-content>
 
-
-
-<ion-footer>
-  <ion-toolbar color="secondary" align="center">
-    <ion-title size="small" >
-      KalaSanman
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>

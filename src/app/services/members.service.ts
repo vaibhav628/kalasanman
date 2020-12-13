@@ -41,7 +41,7 @@ export class MembersService {
           this.dateadded = now.toISOString();
           firebase.database().ref('kalasanman/donations/' + record.fname ).set({
           fullname : record.fname,
-          email : record.email,
+          email : record.femail,
           reviewtext : record.cnumber,
           modified : this.dateadded
 

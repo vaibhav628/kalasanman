@@ -4,7 +4,9 @@ import { AuthenticateService } from '../services/authentication.service';
 import { MembersService } from '../services/members.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { IonSlides } from '@ionic/angular';
 import * as firebase from 'firebase/app';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reviews',
@@ -16,10 +18,15 @@ export class ReviewsPage implements OnInit {
    validations_form: FormGroup;
    userEmail: string;
    alertMessage: string;
+   eventname: string;
 
    reviews = [];
    ref = firebase.database().ref('/kalasanman/reviews').orderByChild('modified');
 
+    slideOptions = {
+       initialSlide: 1,
+       speed: 400,
+     };
 
   constructor(
 
@@ -27,19 +34,22 @@ export class ReviewsPage implements OnInit {
           private authService: AuthenticateService,
           private formBuilder: FormBuilder,
           private membersService: MembersService,
-
           public alertController: AlertController,
+          public activatedRoute : ActivatedRoute,
 
-  ) {   console.log("reviews constructor called")
+  ) {
 
-                  this.ref.on('value', resp => {
-                  this.reviews = [];
-                  this.reviews = snapshotToArray(resp);
+          console.log("reviews constructor called")
+          this.ref.on('value', resp => {
+          this.reviews = [];
+          this.reviews = snapshotToArray(resp);
+          console.log(this.reviews);
+          //console.log(this.reviews[0].email);
+      });
+  }
 
-                  console.log(this.reviews);
-                  console.log(this.reviews[0].email);
-           });
-
+   slidesDidLoad(slides: IonSlides) {
+      slides.startAutoplay();
     }
 
   validation_messages = {
@@ -64,13 +74,13 @@ export class ReviewsPage implements OnInit {
 
   ngOnInit() {
 
-    if(this.authService.userDetails()){
-            this.userEmail = this.authService.userDetails().email;
-          }else{
+    //if(this.authService.userDetails()){
+    //        this.userEmail = this.authService.userDetails().email;
+    //      }else{
 
-            this.presentAlert("Please login to provide your feedback!");
-            this.navCtrl.navigateBack('/login');
-          }
+    //            this.presentAlert("Please login to provide your feedback!");
+    //        this.navCtrl.navigateBack('/login');
+    //      }
 
      this.validations_form = this.formBuilder.group({
            email: new FormControl('', Validators.compose([

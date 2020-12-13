@@ -3,10 +3,117 @@
   overflow: hidden;
 }
 
+.ios, .md {
+    home.page {
+
+        .scroll-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo {
+            height: 80%;
+
+            .cls-1 {
+                            opacity: 0;
+                            animation: 2s 1.5s linear fadeIn;
+                            animation-fill-mode: forwards;
+            }
+        }
+
+    }
 
 
-ion-content.background{
-    --background: url(../../assets/496ecb14589707.562865d064f9e.png) no-repeat center center / cover;
+}
+.cls-1 {
+                            opacity: 0;
+                            animation: 2s 1.5s linear fadeIn;
+                            animation-fill-mode: forwards;
+          }
+@keyframes fadeIn {
 
+    100% {
+        opacity: 1;
+    }
+
+}
+
+ion-card{
+ //--background: 	#800000;
+
+}
+
+ion-chip{
+ --background: #FFE4C4;
+}
+
+ion-fab-button {
+ --background: #A52A2A;
+}
+
+//original works
+//.container {
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    -moz-transform: translateX(-50%) translateY(-50%);
+//    -webkit-transform: translateX(-50%) translateY(-50%);
+//    transform: translateX(-50%) translateY(-50%);
+//}
+.container {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+}
+
+.container-banner {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    //--background: #FFDEAD;
+    //--background: #FFFFFF;
+    //--background:  #A52A2A;
+    //--background: #000000;
+    --background: #A52A2A;
+}
+
+.container-text {
+    //--background: #FFDEAD;
+    //--background: #FFFFFF;
+    --background:  #A52A2A;
+    //--background: #000000;
+}
+
+.social-label {
+  font-size: 0.8em;
+}
+
+.banner_Label_Section {
+  //position: fixed;
+  //display: flex;
+  //width: 100%;
+  justify-content: center;
+  margin-top: 80px;
+}
+.banner_Name {
+  display: flex;
+  justify-content: center;
+  //width: 200px;
+  font-size: 1.5em;
+}
+
+.social_Label_Section {
+  //position: fixed;
+  //display: flex;
+  //width: 100%;
+  justify-content: center;
+  margin-top: 450px;
+}
+.social_Name {
+  display: flex;
+  justify-content: center;
+  //width: 200px;
+  font-size: 0.8em;
 }
 

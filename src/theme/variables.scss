@@ -74,6 +74,10 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+    //This gives ion background
+    --ion-background-color: #FFDEAD;
+
 }
 
 $toolbar-ios-title-font-size: 1.7rem;
@@ -90,4 +94,41 @@ ion-title {
   width: 100%;
   height: 100%;
   text-align: center;
+}
+
+.new-background-color{
+    --background: #FFE4C4;
+}
+
+.new-header-background-color{
+    --background: 	#A52A2A;
+}
+
+.new-footer-background-color{
+    // --background: #DEB887; //burlywood
+    // --background: #FAEBD7;
+     --background: #A52A2A;
+    // --background: #A0522D;
+}
+
+.new-login-background-color{
+    --background: 	#8B4513;
+}
+
+//ion-icon {
+  //color: #A52A2A; //header color
+  //color: #FFFFFF;
+//}
+ion-tab-button{
+    ion-icon, ion-label {
+        color: #FFFFFF!important;
+        --ion-color-base: #FFFFFF !important;
+    }
+}
+
+ion-tab-button:focus {
+    ion-icon, ion-label {
+        color: #000000 !important;
+        --ion-color-base: #000000 !important;
+    }
 }

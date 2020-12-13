@@ -1,9 +1,18 @@
 ion-card{
-  --background: #021b46;
-  --color: #fff;
+     --background: #A52A2A;
+}
+ion-card.form{
+     --background: #800000;
 }
 
 ion-content.background{
-    --background: url(../../assets/496ecb14589707.562865d064f9e.png) ;
+    --background:#FAEBD7;
+}
 
+ion-text{
+   color:#FAEBD7;
+}
+
+ion-fab-button {
+ --background: #A52A2A;
 }

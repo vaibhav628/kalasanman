@@ -1,13 +1,28 @@
 ion-card{
-     margin: 1px 10px;
+     //margin: 1px 10px;
+    //--background: #FFF8DC;
+    --background: #F8F8FF;
+    //margin-left: -16px;
+    //margin-right: -16px;
+    //margin-bottom: -10px
+    //height: 100%;
+    //margin: 15px;
+}
+
+ion-content .test-image {
+  display: block;
+  margin: 0 auto; // Make the photo center align
+  width: auto;    // Adjust the width according to height
+  height: 45vh;   // Height = 50% of screen
 }
 
 ion-card-title {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 ion-content.background{
-    --background: url(../../../assets/496ecb14589707.562865d064f9e.png) ;
+     --background:#FFFFF0;
+     color: #800000;
 }
 
 .myCard{

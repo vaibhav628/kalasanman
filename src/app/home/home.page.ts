@@ -10,17 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
-
-  //articles;
-  //constructor(private apiService: ApiService){}
-    constructor(public alertController: AlertController){}
-  //ionViewDidEnter(){
-
-    //this.apiService.getNews().subscribe((data)=>{
-    //  console.log(data);
-    //  this.articles = data['articles'];
-    //});
-  //}
+  constructor(public alertController: AlertController){}
 
   alertEmailAddress(){
     this.presentAlert("Please write to us @ KalaSanmanCincy@gmail.com")

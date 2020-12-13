@@ -1,48 +1,19 @@
-<ion-header>
-  <ion-toolbar color="secondary">
+<ion-header >
+  <ion-toolbar class="new-header-background-color">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align="left" size="medium">
-      Newsfeed
+    <ion-title align-title="center" class="bar-positive" size="medium">
+      <img src="/assets/KalaSanman-25.png">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content color="dark">
-    <ion-grid>
-      <ion-row>
-        <ion-col size-lg="3" size-md="4" size-sm="6" size="12" *ngFor="let news of (newsfeed)?.slice().reverse(); let i = index" (click)="externalURL(news.externalURL)" >
-          <ion-card color="primary">
-            <ion-card-header>
-              <ion-card-subtitle color="dark">{{ news.Date }} : {{ news.Headline }}</ion-card-subtitle>
-            </ion-card-header>
-            <img src={{news.ImageURL}}>
-
-             <div color="primary"> {{ news.Synopsis }} </div>
-
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+<ion-content class="background">
+  <div>
+      <ion-card *ngFor="let news of (newsfeed)?.slice().reverse(); let i = index" (click)="externalURL(news.externalURL)">
+        <ion-card-title >{{ news.Date }} : {{ news.Headline }} </ion-card-title>
+        <p> {{ news.Synopsis }} </p>
+      </ion-card>
+    </div>
 </ion-content>
-
-
-
-
-
-
-
-
-
-
-
-
-<ion-footer>
-<ion-toolbar color="secondary" align="center">
-  <ion-title size="small" >
-    KalaSanman
-  </ion-title>
-</ion-toolbar>
-</ion-footer>

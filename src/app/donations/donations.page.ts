@@ -38,26 +38,27 @@ export class DonationsPage implements OnInit {
                               { type: 'maxlength', message: 'Enter phone number with area code' },
                               { type: 'pattern', message: 'Enter valid contact number' },
                       ],
-              'email': [
+              'femail': [
                       { type: 'required', message: 'Email is required.' },
                       { type: 'pattern', message: 'Please enter a valid email.' }
                     ],
-
           };
 
     ngOnInit(){
 
-      if(this.authService.userDetails()){
-        this.userEmail = this.authService.userDetails().email;
-      }else{
-        this.presentAlert("Please login to access this section!");
-        this.navCtrl.navigateBack('/login');
-      }
+      // In old version, login was mandatory but it removed now
+
+      //if(this.authService.userDetails()){
+      //  this.userEmail = this.authService.userDetails().email;
+      //}else{
+      //  this.presentAlert("Please login to access this section!");
+      //  this.navCtrl.navigateBack('/login');
+      //}
 
           this.validations_form = this.formBuilder.group({
-          email: new FormControl('', Validators.compose([
+          femail: new FormControl('', Validators.compose([
             Validators.required,
-            Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+            Validators.pattern('[A-Za-z0-9._%+-]{2,}@[a-zA-Z-_.]{2,}[.]{1}[a-zA-Z]{2,}')
           ])),
           fname: new FormControl('', Validators.compose([
                     Validators.minLength(3),
@@ -76,13 +77,25 @@ export class DonationsPage implements OnInit {
     // Calling service to save donations requests
     saveDonationInterest(record) {
 
+      console.log("In saveDonationInterest");
       console.log(record);
       record.email = this.userEmail;
       console.log(this.userEmail);
       this.membersService.saveDonationInterest(record);
       this.alertMessage = "Thanks for your interest in helping KalaSanman. We will get in touch!!!";
       this.presentAlert(this.alertMessage);
-      this.navCtrl.navigateForward('/home');
+      this.navCtrl.navigateForward('/base/home');
+    }
+
+    zelleAlert() {
+    console.log("In zelleAlert");
+    this.alertMessage = "Please Zelle your donations to KalaSanman Zelle ID kalasanmancincy@gmail.com. Thank You!";
+    this.presentAlert(this.alertMessage);
+    }
+
+    checkAlert() {
+    this.alertMessage = "Please make your check payable to Treasurer, KalaSanman and send it to 6025 Glennshire Ct West Chester OH 45069. Thank You!";
+    this.presentAlert(this.alertMessage);
     }
 
     async presentAlert(alertMessage: string) {
@@ -97,6 +110,4 @@ export class DonationsPage implements OnInit {
 
         await alert.present();
       }
-
-
 }

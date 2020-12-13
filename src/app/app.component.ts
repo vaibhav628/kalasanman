@@ -68,6 +68,11 @@ export class AppComponent {
       title: 'About',
       url: '/about',
       icon: 'help-circle-outline'
+    },
+    {
+          title: 'Base',
+          url: '/base',
+          icon: 'home'
     }
   ];
 

@@ -16,6 +16,9 @@ export class PurchasePage implements OnInit {
    infos = [];
    ref = firebase.database().ref('/kalasanman/events/upcoming');
 
+   membershipurl=[];
+   membershipref = firebase.database().ref('/kalasanman/Membership');
+
    constructor(
               private navCtrl: NavController,
               private authService: AuthenticateService,
@@ -30,25 +33,34 @@ export class PurchasePage implements OnInit {
         this.infos = snapshotToArray(resp);
 
         console.log(this.infos);
-        console.log(this.infos[0].Name);
+        //console.log(this.infos[0].Name);
        });
 
+       //Get membership URL. This should return only one entry
+       this.membershipref.on('value', resp => {
+               this.membershipurl = [];
+               this.membershipurl = snapshotToArray(resp);
+
+               console.log(this.membershipurl);
+
+       });
    }
 
   ngOnInit() {
 
-  if(!this.authService.userDetails()) {
+  //if(!this.authService.userDetails()) {
 
-        this.presentAlert("Please login to purchase tickets!");
-        this.navCtrl.navigateBack('/login');
-      }
+  //      this.presentAlert("Please login to purchase tickets!");
+  //      this.navCtrl.navigateBack('/login');
+  //    }
   }
 
-  goToMembershipURL() {
+  goToMembershipURL(URL) {
 
       //Go To external url for ticket purchase
-      window.open("https://www.hungamacity.com/membership/14/kalasanman-membership");
-
+      //This needs to come from firestore
+      //window.open("https://www.hungamacity.com/membership/33/kalasanman-annual-membership-2021");
+      window.open(URL);
     }
 
   goToTicketURL(URL) {

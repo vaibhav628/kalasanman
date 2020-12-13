@@ -1,8 +1,22 @@
 ion-card{
-  --background: #021b46;
-  --color: #fff;
+  --background: 	#800000;
+  //--color: #fff;
+}
+ion-card.tickets{
+  --background: 	#FFF8DC;
+  //--color: #fff;
+}
+
+ion-button{
+ --background: #A52A2A;
 }
 
 ion-content.background{
-    --background: url(../../assets/496ecb14589707.562865d064f9e.png) ;
+
+}
+
+.container {
+    position: absolute;
+    top: 80%;
+    left: 5%;
 }
