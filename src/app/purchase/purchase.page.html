@@ -16,19 +16,27 @@
         <ion-card class="tickets" align="left" button=true *ngFor="let membership of membershipurl" (click)="goToMembershipURL(membership.TicketURL)">
           <ion-card-header >
             <ion-card-title color="dark" align="left">KALASANMAN MEMBERSHIP</ion-card-title>
+            <ion-card-subtitle color="dark" align="left">Purchase your annual membership here</ion-card-subtitle>
           </ion-card-header>
         </ion-card>
 
-        <ion-card button=true align="left"  *ngFor="let event of infos" (click)="goToTicketURL(event.TicketURL)">
-          <ion-item *ngIf="event.Status=='Online' || event.Status=='Theater'">
-            <ion-card-header >
-              <ion-card-title color="dark" align="left">{{ event.Name}}</ion-card-title>
-              <ion-card-subtitle color="dark" align="left">{{ event.Status}} : {{ event.Type}}</ion-card-subtitle>
-            </ion-card-header>
+      <ion-col  *ngFor="let event of infos" >
+        <ion-card  type="button" button="true" *ngIf="event.Status=='Online' || event.Status=='Theater'" (click)="goToTicketURL(event.TicketURL)">
+          <ion-item >
+            <ion-label color="light">
+              <ion-card-title  color="light" align="left">{{ event.Name}}</ion-card-title>
+              <h2 >{{ event.Status}} : {{ event.Type}}</h2>
+            </ion-label>
+            <ion-label align="right" color="light" *ngIf="event.EventType=='Paid'" >
+              <h2>Buy Now</h2>
+            </ion-label>
+            <ion-label align="right" color="light" *ngIf="event.EventType=='Free'" >
+              <h2>Free Event</h2>
+            </ion-label>
           </ion-item>
         </ion-card>
+      </ion-col>
       </ion-card>
-
 </ion-content>
 
 

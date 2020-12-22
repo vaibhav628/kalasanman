@@ -112,7 +112,7 @@ export class ReviewsPage implements OnInit {
         this.membersService.saveReview(record);
         this.alertMessage = "Thanks for your feedback!";
         this.presentAlert(this.alertMessage);
-        this.navCtrl.navigateForward('/home');
+        this.navCtrl.navigateForward('/base/home');
     }
 
     async presentAlert(alertMessage: string) {

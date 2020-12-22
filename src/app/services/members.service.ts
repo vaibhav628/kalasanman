@@ -55,7 +55,7 @@ export class MembersService {
           this.dateadded = now.toISOString();
           firebase.database().ref('kalasanman/reviews/' + record.fname ).set({
           fullname : record.fname,
-          email : record.email,
+          //email : record.email,
           event : record.eventname,
           reviewtext : record.review,
           modified : this.dateadded

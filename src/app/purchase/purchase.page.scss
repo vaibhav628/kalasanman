@@ -1,10 +1,19 @@
 ion-card{
-  --background: 	#800000;
+  //--background: 	#800000;
+  --background: #FFFFF0;
+  margin: 5px 10px;
   //--color: #fff;
 }
 ion-card.tickets{
-  --background: 	#FFF8DC;
+  //--background: 	#FFF8DC;
   //--color: #fff;
+  --background: #FFFFF0;
+ 
+}
+ion-item{
+  //--background: 	#FFF8DC;
+  //--color: #fff;
+  --background: #A52A2A;;
 }
 
 ion-button{
@@ -12,7 +21,7 @@ ion-button{
 }
 
 ion-content.background{
-
+ --background:#FAEBD7;
 }
 
 .container {
