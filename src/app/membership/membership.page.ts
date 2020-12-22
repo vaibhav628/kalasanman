@@ -81,12 +81,12 @@ export class MembershipPage implements OnInit {
 
   ngOnInit(){
 
-    if(this.authService.userDetails()){
-      this.userEmail = this.authService.userDetails().email;
-    }else{
-      this.presentAlertNoButton("Please login to access this section!");
-      this.navCtrl.navigateBack('/base/login');
-    }
+    //if(this.authService.userDetails()){
+    //  this.userEmail = this.authService.userDetails().email;
+    //}else{
+    //  this.presentAlertNoButton("Please login to access this section!");
+    //  this.navCtrl.navigateBack('/base/login');
+    //}
 
         this.validations_form = this.formBuilder.group({
         email: new FormControl('', Validators.compose([
